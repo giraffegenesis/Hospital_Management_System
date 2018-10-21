@@ -65,9 +65,9 @@ public class Driver extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabelLogin.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        jLabelLogin.setFont(new java.awt.Font("Times New Roman", 3, 22)); // NOI18N
         jLabelLogin.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelLogin.setText("Login As");
+        jLabelLogin.setText("Login");
 
         jButtonPatient.setBackground(new java.awt.Color(51, 51, 51));
         jButtonPatient.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
@@ -116,8 +116,8 @@ public class Driver extends javax.swing.JFrame {
                             .addComponent(jButtonDoctor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(jPanelBaseLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jLabelLogin)
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jPanelRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -125,9 +125,9 @@ public class Driver extends javax.swing.JFrame {
             jPanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanelBaseLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jLabelLogin)
-                .addGap(34, 34, 34)
+                .addGap(39, 39, 39)
+                .addComponent(jLabelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addComponent(jButtonPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jButtonDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
