@@ -5,6 +5,8 @@
  */
 package hospital_management_system;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author general
@@ -229,7 +231,12 @@ public class AdminPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButtonAddPatientActionPerformed
 
     private void jToggleButtonAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAddDoctorActionPerformed
-        // TODO add your handling code here:
+        AddDoctor addDoc = new AddDoctor();
+        addDoc.setVisible(true);
+        addDoc.pack();
+        addDoc.setLocationRelativeTo(null);
+        addDoc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();        
     }//GEN-LAST:event_jToggleButtonAddDoctorActionPerformed
 
     private void jToggleButtonUpdatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonUpdatePatientActionPerformed
