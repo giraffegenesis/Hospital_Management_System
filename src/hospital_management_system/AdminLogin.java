@@ -167,13 +167,9 @@ public class AdminLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        // if-else statement based on hardcoded Admin username and password
-        //for now just click login button
-        AdminPortal adminLOptions = new AdminPortal();
-        adminLOptions.setVisible(true);
-        adminLOptions.pack();
-        adminLOptions.setLocationRelativeTo(null);
-        adminLOptions.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   
+        HospitalManagementSystem hms = new HospitalManagementSystem();
+        hms.adminPortal();
         this.dispose();
     }//GEN-LAST:event_jButtonLoginActionPerformed
     

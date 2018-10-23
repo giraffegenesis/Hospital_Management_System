@@ -165,11 +165,9 @@ public class Driver extends javax.swing.JFrame {
      * @param evt 
      */
     private void jButtonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminActionPerformed
-        AdminLogin adminLogin = new AdminLogin();
-        adminLogin.setVisible(true);
-        adminLogin.pack();
-        adminLogin.setLocationRelativeTo(null);
-        adminLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        HospitalManagementSystem hms = new HospitalManagementSystem(); //facade
+        hms.adminLogin();
         this.dispose();
     }//GEN-LAST:event_jButtonAdminActionPerformed
 
