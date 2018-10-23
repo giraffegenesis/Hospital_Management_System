@@ -167,7 +167,7 @@ public class AdminLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        //if-else check should be here
+        //if-else check should be here before accessing AdminPortal
         AdminPortal adminLOptions = new AdminPortal();
         adminLOptions.setVisible(true);
         adminLOptions.pack();

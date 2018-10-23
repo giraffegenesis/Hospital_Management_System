@@ -159,13 +159,15 @@ public class Driver extends javax.swing.JFrame {
     private void jButtonDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDoctorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonDoctorActionPerformed
-    
+
     /**
-     * Method that shows admin sign in page when admin button is clicked
-     * @param evt 
+     * Method that access HospitalManagementSystem.java (facade) when client
+     * clicks Admin Button in Driver.java
+     *
+     * @param evt
      */
     private void jButtonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminActionPerformed
-        
+
         HospitalManagementSystem hms = new HospitalManagementSystem(); //facade
         hms.adminLogin();
         this.dispose();

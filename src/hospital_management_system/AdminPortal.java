@@ -236,7 +236,7 @@ public class AdminPortal extends javax.swing.JFrame {
         addDoc.pack();
         addDoc.setLocationRelativeTo(null);
         addDoc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();        
+        this.dispose();
     }//GEN-LAST:event_jToggleButtonAddDoctorActionPerformed
 
     private void jToggleButtonUpdatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonUpdatePatientActionPerformed

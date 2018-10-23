@@ -6,12 +6,14 @@
 package hospital_management_system;
 
 /**
- *This class will create Doctor object from the information added by the Admin
+ * This class will create Doctor object from the information added by the Admin
+ *
  * @author general
  */
 public class AddDoctorPortal extends javax.swing.JFrame {
 
     String imagePath;
+
     /**
      * Creates new form Doctor
      */
@@ -203,8 +205,8 @@ public class AddDoctorPortal extends javax.swing.JFrame {
 
     private void jButtonProfilePictureBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProfilePictureBrowseActionPerformed
         ProfilePictureProcessing ppp = new ProfilePictureProcessing();
-        imagePath = ppp.browseImage(jLabelProfilePicture); 
-        
+        imagePath = ppp.browseImage(jLabelProfilePicture);
+
     }//GEN-LAST:event_jButtonProfilePictureBrowseActionPerformed
 
     private void jButtonAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddDoctorActionPerformed
