@@ -90,6 +90,12 @@ public class AddDoctorPortal extends javax.swing.JFrame {
         jLabelProfile.setForeground(new java.awt.Color(102, 102, 102));
         jLabelProfile.setText("Profile Picture:");
 
+        jTextFieldFirstName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFirstNameActionPerformed(evt);
+            }
+        });
+
         jLabelProfilePicture.setBackground(new java.awt.Color(153, 153, 153));
         jLabelProfilePicture.setOpaque(true);
 
@@ -216,6 +222,10 @@ public class AddDoctorPortal extends javax.swing.JFrame {
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonCancelActionPerformed
+
+    private void jTextFieldFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFirstNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldFirstNameActionPerformed
 
     /**
      * @param args the command line arguments
