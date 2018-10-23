@@ -128,12 +128,12 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButtonProfilePictureBrowse" min="-2" pref="47" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jButtonAddDoctor" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
-                      <Component id="jButtonCancel" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                      <Component id="jButtonCancel" min="-2" pref="47" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>

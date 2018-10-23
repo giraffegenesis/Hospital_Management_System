@@ -11,12 +11,14 @@ package hospital_management_system;
  */
 public class AddDoctor extends javax.swing.JFrame {
 
+    String imagePath;
     /**
      * Creates new form Doctor
      */
     public AddDoctor() {
         initComponents();
         this.setLocationRelativeTo(null);
+        imagePath = null;
     }
 
     /**
@@ -178,8 +180,8 @@ public class AddDoctor extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBaseLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonProfilePictureBrowse, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)))
-                .addGroup(jPanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGap(41, 41, 41)))
+                .addGroup(jPanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonAddDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -200,7 +202,9 @@ public class AddDoctor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonProfilePictureBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProfilePictureBrowseActionPerformed
-        // TODO add your handling code here:
+        ProfilePictureProcessing ppp = new ProfilePictureProcessing();
+        imagePath = ppp.browseImage(jLabelProfilePicture); 
+        
     }//GEN-LAST:event_jButtonProfilePictureBrowseActionPerformed
 
     private void jButtonAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddDoctorActionPerformed
