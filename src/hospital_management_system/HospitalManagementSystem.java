@@ -24,14 +24,7 @@ public void adminLogin(){
     adminLogin.setLocationRelativeTo(null);
     adminLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 }   
-    
-public void adminPortal(){
-    AdminPortal adminLOptions = new AdminPortal();
-        adminLOptions.setVisible(true);
-        adminLOptions.pack();
-        adminLOptions.setLocationRelativeTo(null);
-        adminLOptions.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-}
+
     
     
     

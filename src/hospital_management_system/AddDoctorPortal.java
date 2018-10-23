@@ -9,13 +9,13 @@ package hospital_management_system;
  *This class will create Doctor object from the information added by the Admin
  * @author general
  */
-public class AddDoctor extends javax.swing.JFrame {
+public class AddDoctorPortal extends javax.swing.JFrame {
 
     String imagePath;
     /**
      * Creates new form Doctor
      */
-    public AddDoctor() {
+    public AddDoctorPortal() {
         initComponents();
         this.setLocationRelativeTo(null);
         imagePath = null;
@@ -232,21 +232,23 @@ public class AddDoctor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddDoctorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddDoctorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddDoctorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddDoctorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddDoctor().setVisible(true);
+                new AddDoctorPortal().setVisible(true);
             }
         });
     }

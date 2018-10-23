@@ -231,7 +231,7 @@ public class AdminPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButtonAddPatientActionPerformed
 
     private void jToggleButtonAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAddDoctorActionPerformed
-        AddDoctor addDoc = new AddDoctor();
+        AddDoctorPortal addDoc = new AddDoctorPortal();
         addDoc.setVisible(true);
         addDoc.pack();
         addDoc.setLocationRelativeTo(null);

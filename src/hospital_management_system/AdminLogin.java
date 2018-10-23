@@ -167,12 +167,15 @@ public class AdminLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-   
-        HospitalManagementSystem hms = new HospitalManagementSystem();
-        hms.adminPortal();
+        //if-else check should be here
+        AdminPortal adminLOptions = new AdminPortal();
+        adminLOptions.setVisible(true);
+        adminLOptions.pack();
+        adminLOptions.setLocationRelativeTo(null);
+        adminLOptions.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jButtonLoginActionPerformed
-    
+
     // GUI window is closed upon clicking this button
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         System.exit(0);
