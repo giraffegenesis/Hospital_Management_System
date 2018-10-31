@@ -10,5 +10,5 @@ package hospital_management_system;
  * @author general
  */
 public class Test {
-    
+    String test;
 }
