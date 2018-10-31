@@ -10,7 +10,7 @@ import java.sql.*;
  * @author coolj
  */
 public final class Patient {
-   String aids;
+   String aid;
     private Patient(){
         
     }
