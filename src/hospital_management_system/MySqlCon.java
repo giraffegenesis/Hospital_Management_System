@@ -12,14 +12,20 @@ package hospital_management_system;
     import java.sql.*;  
     class MysqlCon{  
     public static Connection getConnection() {
-        Connection con = null;
-        try {
+        Connection conn= null;
+        try { 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/javacontactsapp?useTimezone=true&serverTimezone=UTC";
-            con = DriverManager.getConnection(url, "root", "");
-        } catch (Exception ex) {
-            System.out.print(ex.getMessage());
+            String url = "jdbc:mysql://localhost:3306/hms";
+            conn = DriverManager.getConnection(url, "root", "");
+        }catch (Exception e) { 
+            System.err.println("Got an exception! "); 
+            e.printStackTrace(System.out);
+            System.err.println(e.getMessage()); 
         }
-        return con;
+        return conn;
     }
+   
+
+            
+	
 }

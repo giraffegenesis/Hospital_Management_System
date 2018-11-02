@@ -25,8 +25,19 @@ public class HMS {
 		
 	}
     
-    public String addDoctor(String fName, String lName,String phoneNumber){
-        return null;
+    public boolean addDoctor(String fName, String lName,int phoneNumber, byte[] picture){
+        Connection conn= MysqlCon.getConnection();
+        try{
+            Statement st = conn.createStatement(); 
+            st.executeUpdate("INSERT INTO doctor " + 
+                "VALUES ("+15+",'"+fName+"','"+lName+"','"+phoneNumber+"','" + picture+"', 'death', 'pan',"+2001+")"); 
+            conn.close(); 
+            return true;
+        }catch(Exception e){
+            System.err.println("fuck");
+            e.printStackTrace();
+        }
+        return false;
     }
     
     public String updateDoctor(int doctorId){
@@ -37,8 +48,19 @@ public class HMS {
         return null;
     }
     
-    public String addPatient(String fName,String lName, String phoneNumber,int doctorId){
-        return null;
+    public boolean addPatient(String fName,String lName, int phoneNumber,int doctorId){
+        Connection conn= MysqlCon.getConnection();
+        try{
+            Statement st = conn.createStatement(); 
+            st.executeUpdate("INSERT INTO patient " + 
+                "VALUES ("+13+",'"+fName+"','"+lName+"','failure','hater', 'death', 'pa',"+phoneNumber+",'purple')"); 
+            conn.close(); 
+            return true;
+        }catch(Exception e){
+            System.err.println("fuck");
+            e.printStackTrace();
+        }
+        return false;
     }
     
     public String updatePatient(int patientId){
@@ -63,5 +85,13 @@ public class HMS {
     
     public String addEvaluation(String department, Date date, String testType, String notes){
         return null;
+    }
+    public static void main(String[] args) {
+       /* HMS purple = new HMS();
+        byte[] array= {3,0};
+        purple.addDoctor("jake","theSnake", 12034, array);
+        
+        purple.addPatient("john", "smith", 21242450, 0);
+        */
     }
 }

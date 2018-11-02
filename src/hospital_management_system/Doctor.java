@@ -9,7 +9,7 @@ import java.sql.*;
  *
  * @author coolj
  */
-public  final class Doctor {
+public final class Doctor {
     
     
     private Doctor(){
