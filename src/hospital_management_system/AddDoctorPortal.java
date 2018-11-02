@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  * @author general
  */
 public class AddDoctorPortal extends javax.swing.JFrame {
+
     private static HMS hms; // UI has an instance of facade HMS
     String imagePath;
 
@@ -24,7 +25,7 @@ public class AddDoctorPortal extends javax.swing.JFrame {
         hms = HMS.instance();
         imagePath = null;
         this.setLocationRelativeTo(null);
-        
+
     }
 
     /**
@@ -220,20 +221,19 @@ public class AddDoctorPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonProfilePictureBrowseActionPerformed
 
     private void jButtonAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddDoctorActionPerformed
-    
+
         String firstName = jTextFieldFirstName.getText();
         String lastName = jTextFieldLastName.getText();
         int phoneNum = Integer.parseInt(jTextFieldPhoneNumber.getText());
         String image = imagePath;
-        
+
         Doctor result;
         result = hms.addDoctor(firstName, lastName, phoneNum, image);
         if (result == null) {
             JOptionPane.showMessageDialog(null, "Something Wrong, Doctor Information Wasn't Added");
         }
-        JOptionPane.showMessageDialog(null, "Account Created"); // need to display the new doctor id created ffor future login
-        
-        
+        JOptionPane.showMessageDialog(null, "Account Created"); // need to display the new doctor id created for future login
+
     }//GEN-LAST:event_jButtonAddDoctorActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed

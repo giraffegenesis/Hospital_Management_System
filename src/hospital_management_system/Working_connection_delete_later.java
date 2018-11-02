@@ -9,8 +9,10 @@ package hospital_management_system;
  *
  * @author coolj
  */
-    import java.sql.*;  
-    class Working_connection_delete_later{  
+import java.sql.*;
+
+class Working_connection_delete_later {
+
     public static Connection getConnection() {
         Connection con = null;
         try {
@@ -22,22 +24,22 @@ package hospital_management_system;
         }
         return con;
     }
+
     public static void main(String[] args) {
-		Connection conn= null;
-                try { 
+        Connection conn = null;
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/hms";
             conn = DriverManager.getConnection(url, "root", "");
-            Statement st = conn.createStatement(); 
-            st.executeUpdate("INSERT INTO prescription " + 
-                "VALUES (1, 'Simpson',11, 'Mr.', 10, 2001)"); 
-            
+            Statement st = conn.createStatement();
+            st.executeUpdate("INSERT INTO prescription "
+                    + "VALUES (1, 'Simpson',11, 'Mr.', 10, 2001)");
 
-            conn.close(); 
-        } catch (Exception e) { 
-            System.err.println("Got an exception! "); 
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
             e.printStackTrace(System.out);
-            System.err.println(e.getMessage()); 
-        } 
-	}
+            System.err.println(e.getMessage());
+        }
+    }
 }

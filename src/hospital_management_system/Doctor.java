@@ -4,24 +4,25 @@
  * and open the template in the editor.
  */
 package hospital_management_system;
+
 import java.sql.*;
+
 /**
  *
  * @author coolj
  */
 public class Doctor {
-    
+
     String fName;
     String lName;
     int phoneNumber;
     String image;
-   
-    
-    public Doctor(String fName, String lName, int phoneNumber, String image){
-     this.fName = fName;
-     this.lName = lName;
-     this.phoneNumber = phoneNumber;
-     this.image = image;
-        
+
+    public Doctor(String fName, String lName, int phoneNumber, String image) {
+        this.fName = fName;
+        this.lName = lName;
+        this.phoneNumber = phoneNumber;
+        this.image = image;
+
     }
 }

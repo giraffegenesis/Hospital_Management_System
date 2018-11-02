@@ -7,14 +7,13 @@ package hospital_management_system;
 
 import javax.swing.JFrame;
 
-
 /**
- *This is the beginning of the program containing the main() method
+ * This is the beginning of the program containing the main() method
+ *
  * @author AbrarZawed
  */
 public class Driver extends javax.swing.JFrame {
 
-  
     /**
      * Creates new form Driver
      */

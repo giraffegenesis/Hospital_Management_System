@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package hospital_management_system;
+
 import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;

@@ -4,18 +4,22 @@
  * and open the template in the editor.
  */
 package hospital_management_system;
+
 import java.sql.*;
+
 /**
  *
  * @author coolj
  */
 public final class Patient {
-   String aid;
-    private Patient(){
-        
+
+    String aid;
+
+    private Patient() {
+
     }
-    
-    public boolean addPatient(){
+
+    public boolean addPatient() {
         return false;
     }
 }
