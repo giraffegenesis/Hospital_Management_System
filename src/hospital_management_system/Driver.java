@@ -7,12 +7,14 @@ package hospital_management_system;
 
 import javax.swing.JFrame;
 
+
 /**
- *
- * @author general
+ *This is the beginning of the program containing the main() method
+ * @author AbrarZawed
  */
 public class Driver extends javax.swing.JFrame {
 
+  
     /**
      * Creates new form Driver
      */
@@ -168,8 +170,11 @@ public class Driver extends javax.swing.JFrame {
      */
     private void jButtonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminActionPerformed
 
-        HospitalManagementSystem hms = new HospitalManagementSystem(); //facade
-        hms.adminLogin();
+        AdminLogin adminLogin = new AdminLogin();
+        adminLogin.setVisible(true);
+        adminLogin.pack();
+        adminLogin.setLocationRelativeTo(null);
+        adminLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jButtonAdminActionPerformed
 

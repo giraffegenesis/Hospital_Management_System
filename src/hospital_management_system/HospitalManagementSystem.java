@@ -14,12 +14,6 @@ import javax.swing.JFrame;
  */
 public class HospitalManagementSystem {
 
-    public void adminLogin() {
-        AdminLogin adminLogin = new AdminLogin();  //facade -> AdminLogin
-        adminLogin.setVisible(true);
-        adminLogin.pack();
-        adminLogin.setLocationRelativeTo(null);
-        adminLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
+    
 
 }
