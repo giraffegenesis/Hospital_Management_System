@@ -57,9 +57,12 @@ public class HMS {
             ps.executeUpdate();
             rs = ps.getGeneratedKeys();
 
-            if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "The new doctor id is: " + rs.getInt(1));
+            if (!rs.next()) {
+                JOptionPane.showMessageDialog(null, "Action Failed");
+                System.exit(0);
             }
+            JOptionPane.showMessageDialog(null, "The new doctor id is: " + rs.getInt(1));
+            System.exit(0);
 
         } catch (Exception ex) {
             Logger.getLogger(HMS.class.getName()).log(Level.SEVERE, null, ex);
