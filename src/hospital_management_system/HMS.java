@@ -5,7 +5,13 @@
  */
 package hospital_management_system;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +21,7 @@ public class HMS {
 
     private static final long serialVersionUID = 1L;
     private static HMS hms;
+    private Connection con;
 
     private HMS() {
 
@@ -29,9 +36,35 @@ public class HMS {
 
     }
 
-    public Doctor addDoctor(String fName, String lName, int phoneNumber, String image) { // image to blob (see signup.java)
+    public Doctor addDoctor(String fName, String lName, String phoneNumber, String image) { // image to blob (see signup.java)
         Doctor doctor = new Doctor(fName, lName, phoneNumber, image);
+
         // CREATE CONNECTION HERE.......
+        con = MyConnection.getConnection();
+        PreparedStatement ps;
+        ResultSet rs;
+
+        try {
+            ps = con.prepareStatement("INSERT INTO `doctor`(`fName`, `lName`, `phoneNumber`, `pic`) VALUES (?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
+            // Sets the designated parameter to the given Java String value
+            ps.setString(1, doctor.getfName());
+            ps.setString(2, doctor.getlName());
+            ps.setString(3, doctor.getPhoneNumber());
+
+            InputStream img = new FileInputStream(new File(doctor.getImage())); // string to blob
+            ps.setBlob(4, img);
+
+            ps.executeUpdate();
+            rs = ps.getGeneratedKeys();
+
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "The new doctor id is: " + rs.getInt(1));
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(HMS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return doctor;
     }
 
@@ -43,20 +76,16 @@ public class HMS {
         return null;
     }
 
-    public boolean addPatient(String fName, String lName, int phoneNumber, int doctorId) {
-        Connection conn = MysqlCon.getConnection();
-        try {
-            Statement st = conn.createStatement();
-            st.executeUpdate("INSERT INTO patient "
-                    + "VALUES (" + 13 + ",'" + fName + "','" + lName + "','failure','hater', 'death', 'pa'," + phoneNumber + ",'purple')");
-            conn.close();
-            return true;
-        } catch (Exception e) {
-            System.err.println("fuck");
-            e.printStackTrace();
-        }
-        return false;
-    }
+    /**
+     *
+     * public boolean addPatient(String fName, String lName, int phoneNumber,
+     * int doctorId) { Connection conn = MysqlCon.getConnection(); try {
+     * Statement st = conn.createStatement(); st.executeUpdate("INSERT INTO
+     * patient " + "VALUES (" + 13 + ",'" + fName + "','" + lName +
+     * "','failure','hater', 'death', 'pa'," + phoneNumber + ",'purple')");
+     * conn.close(); return true; } catch (Exception e) {
+     * System.err.println("fuck"); e.printStackTrace(); } return false; }
+     */
 
     public String updatePatient(int patientId) {
         return null;
@@ -82,12 +111,4 @@ public class HMS {
         return null;
     }
 
-    public static void main(String[] args) {
-        /* HMS purple = new HMS();
-        byte[] array= {3,0};
-        purple.addDoctor("jake","theSnake", 12034, array);
-        
-        purple.addPatient("john", "smith", 21242450, 0);
-         */
-    }
 }
