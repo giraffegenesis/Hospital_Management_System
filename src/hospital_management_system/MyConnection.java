@@ -19,7 +19,7 @@ public class MyConnection {
             // loading and initializing the class that represents the MySQL driver 
             Class.forName("com.mysql.cj.jdbc.Driver");
             // javacontactsapp is the name of database in the MySQL Database Management System
-            String url = "jdbc:mysql://localhost:3306/hospitalmanagementsystem?useTimezone=true&serverTimezone=UTC";
+            String url = "jdbc:mysql://localhost:3306/hospitalmanagementsystem";
             connect = DriverManager.getConnection(url, "root", "");
         } catch (Exception ex) {
             System.out.print("Not Connected to MySQL Database");

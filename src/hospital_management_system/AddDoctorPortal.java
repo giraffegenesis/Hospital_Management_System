@@ -5,6 +5,9 @@
  */
 package hospital_management_system;
 
+import javax.swing.JOptionPane;
+import source_code.Doctor;
+
 /**
  * This class will create Doctor object from the information added by the Admin
  *
@@ -227,10 +230,11 @@ public class AddDoctorPortal extends javax.swing.JFrame {
 
         Doctor result;
         result = hms.addDoctor(firstName, lastName, phoneNum, image);
-  //      if (result == null) {
-  //          JOptionPane.showMessageDialog(null, "Something Wrong, Doctor Information Wasn't Added");
-  //      }
-  //      JOptionPane.showMessageDialog(null, "Account Created"); // need to display the new doctor id created for future login
+        System.out.println("hello");
+      // if (result == null) {
+       //    JOptionPane.showMessageDialog(null, "Something Wrong, Doctor Information Wasn't Added");
+      //  }
+       JOptionPane.showMessageDialog(null, "Account Created" + result); // need to display the new doctor id created for future login
 
     }//GEN-LAST:event_jButtonAddDoctorActionPerformed
 

@@ -5,10 +5,12 @@
  */
 package hospital_management_system;
 
+import source_code.Doctor;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.sql.*;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -21,10 +23,13 @@ public class HMS {
 
     private static final long serialVersionUID = 1L;
     private static HMS hms;
+    private static DoctorList doc;
+    
     private Connection con;
+    
 
     private HMS() {
-
+        doc= DoctorList.instance();
     }
 
     public static HMS instance() {
@@ -38,9 +43,9 @@ public class HMS {
 
     public Doctor addDoctor(String fName, String lName, String phoneNumber, String image) { // image to blob (see signup.java)
         Doctor doctor = new Doctor(fName, lName, phoneNumber, image);
-
+        doc.add(doctor.getDoctorId(), doctor);
         // CREATE CONNECTION HERE.......
-        con = MyConnection.getConnection();
+       /* con = MyConnection.getConnection();
         PreparedStatement ps;
         ResultSet rs;
 
@@ -59,7 +64,7 @@ public class HMS {
 
             if (!rs.next()) {
                 JOptionPane.showMessageDialog(null, "Action Failed");
-                System.exit(0);
+               System.exit(0);
             }
             JOptionPane.showMessageDialog(null, "The new doctor id is: " + rs.getInt(1));
             System.exit(0);
@@ -68,7 +73,13 @@ public class HMS {
             Logger.getLogger(HMS.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return doctor;
+        return doctor; */
+       System.out.println(doctor);
+       Iterator it= doc.getIterator();
+       while(it.hasNext()){
+           System.out.println(it.next());
+       }
+       return doctor;
     }
 
     public String updateDoctor(int doctorId) {
@@ -76,7 +87,11 @@ public class HMS {
     }
 
     public String deleteDoctor(int id) {
-        return null;
+        
+       /* Doctor doctor;
+        doctor = (Doctor)doc.remove(id);
+        doctor.removeDoctor(id);
+        */return null;
     }
 
     /**
@@ -112,6 +127,11 @@ public class HMS {
 
     public String addEvaluation(String department, Date date, String testType, String notes) {
         return null;
+    }
+    
+    public static void main(String args[]) {
+       HMS hms= HMS.instance();
+       hms.deleteDoctor(24);
     }
 
 }
