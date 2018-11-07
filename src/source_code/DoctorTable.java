@@ -61,8 +61,8 @@ public class DoctorTable extends DatabaseInteraction {
 
     public boolean delete(int doctorId) {
         con = MyConnection.getConnection();
-        PreparedStatement ps;
-     
+       /* PreparedStatement ps;
+        */
         try {
            
             String query = "DELETE FROM `doctor` WHERE doctorId= ?";
@@ -71,7 +71,7 @@ public class DoctorTable extends DatabaseInteraction {
             preparedStmt.execute();
             return true;
         }catch (SQLException ex) {
-            Logger.getLogger(HMS.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DoctorTable.class.getName()).log(Level.SEVERE, null, ex);
         }
         throw new UnsupportedOperationException("YOU ARE A FAILURE."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -111,6 +111,6 @@ public class DoctorTable extends DatabaseInteraction {
     
     public static void main(String args[]) {
        DoctorTable dt= new DoctorTable();
-       dt.delete(24);
+       dt.delete(31);
     }
 }

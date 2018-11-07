@@ -230,7 +230,7 @@ public class AddDoctorPortal extends javax.swing.JFrame {
 
         Doctor result;
         result = hms.addDoctor(firstName, lastName, phoneNum, image);
-        System.out.println("hello");
+        
       // if (result == null) {
        //    JOptionPane.showMessageDialog(null, "Something Wrong, Doctor Information Wasn't Added");
       //  }
