@@ -5,7 +5,7 @@
  */
 package hospital_management_system;
 
-import source_code.Doctor;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -23,13 +23,13 @@ public class HMS {
 
     private static final long serialVersionUID = 1L;
     private static HMS hms;
-    private static DoctorList doc;
+  
     
     private Connection con;
     
 
     private HMS() {
-        doc= DoctorList.instance();
+     
     }
 
     public static HMS instance() {
@@ -41,57 +41,42 @@ public class HMS {
 
     }
 
-    public Doctor addDoctor(String fName, String lName, String phoneNumber, String image) { // image to blob (see signup.java)
-        Doctor doctor = new Doctor(fName, lName, phoneNumber, image);
-        doc.add(doctor.getDoctorId(), doctor);
-        // CREATE CONNECTION HERE.......
-       /* con = MyConnection.getConnection();
-        PreparedStatement ps;
-        ResultSet rs;
-
+    public int addDoctor(String fName, String lName, String phoneNumber, String image) { // image to blob (see signup.java)
+        int id=-1;
+        DoctorConnection dt= new DoctorConnection();
+        ResultSet rs = dt.add(fName,lName,phoneNumber,image);
         try {
-            ps = con.prepareStatement("INSERT INTO `doctor`(`fName`, `lName`, `phoneNumber`, `pic`) VALUES (?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
-            // Sets the designated parameter to the given Java String value
-            ps.setString(1, doctor.getfName());
-            ps.setString(2, doctor.getlName());
-            ps.setString(3, doctor.getPhoneNumber());
-
-            InputStream img = new FileInputStream(new File(doctor.getImage())); // string to blob
-            ps.setBlob(4, img);
-
-            ps.executeUpdate();
-            rs = ps.getGeneratedKeys();
-
-            if (!rs.next()) {
-                JOptionPane.showMessageDialog(null, "Action Failed");
-               System.exit(0);
+            if(rs.next()){
+                id=rs.getInt(1);
             }
-            JOptionPane.showMessageDialog(null, "The new doctor id is: " + rs.getInt(1));
-            System.exit(0);
-
-        } catch (Exception ex) {
-            Logger.getLogger(HMS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return doctor; */
-       System.out.println(doctor);
-       Iterator it= doc.getIterator();
-       while(it.hasNext()){
-           System.out.println(it.next());
+        
+       } catch (SQLException ex) {
+           System.out.println("failure");
+       
        }
-       return doctor;
+       return id;
     }
-
-    public String updateDoctor(int doctorId) {
-        return null;
+    
+    public String getDoctor(int doctorId){
+        String result;
+        DoctorConnection dt= new DoctorConnection();
+        result = dt.getARow(doctorId);
+        return result;
+    }
+    
+    public boolean updateDoctor(int doctorId, String fName,String lName,String phoneNumber,String image) {
+        DoctorConnection dt= new DoctorConnection();
+        return dt.updateRow(doctorId,fName,lName,phoneNumber,image);
+    
     }
 
     public String deleteDoctor(int id) {
-        
-       /* Doctor doctor;
-        doctor = (Doctor)doc.remove(id);
-        doctor.removeDoctor(id);
-        */return null;
+        DoctorConnection dt = new DoctorConnection();
+        boolean result= dt.delete(id);
+        if(result==true){
+            return (""+id);
+        }
+        return null;
     }
 
     /**

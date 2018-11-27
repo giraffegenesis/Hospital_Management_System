@@ -16,19 +16,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import source_code.DatabaseInteraction;
 
 /**
  *
  * @author coolj
  */
-public class DoctorTable extends DatabaseInteraction {
-    private Connection con;
-    
-     DoctorTable(){
+public final class PatientConnection extends DatabaseInteraction{
+    Connection con;
+    private PatientConnection(){
         
     }
-    public ResultSet add(String fName, String lName, String phoneNumber,String image) {
-        con = MyConnection.getConnection();
+
+   
+    public boolean add(String fName) {
+        /*con = MyConnection.getConnection();
         PreparedStatement ps;
         ResultSet rs;
 
@@ -52,29 +54,31 @@ public class DoctorTable extends DatabaseInteraction {
              con.close();
              System.exit(0);
             //setDoctorId(temp); */
-        }catch (Exception ex) {
+        /*}catch (Exception ex) {
             Logger.getLogger(HMS.class.getName()).log(Level.SEVERE, null, ex);
         }
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            
+         */ 
+        return false;
     }
 
-    public boolean delete(int doctorId) {
-        con = MyConnection.getConnection();
-       /* PreparedStatement ps;
-        */
+    
+    public boolean delete(int patientId) {
+       con = MyConnection.getConnection();
+      
         try {
            
-            String query = "DELETE FROM `doctor` WHERE doctorId= ?";
+            String query = "DELETE FROM `patient` WHERE patientId= ?";
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setInt(1, doctorId);
+            preparedStmt.setInt(1, patientId);
             preparedStmt.execute();
             return true;
         }catch (SQLException ex) {
-            Logger.getLogger(DoctorTable.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PatientConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
         throw new UnsupportedOperationException("YOU ARE A FAILURE."); //To change body of generated methods, choose Tools | Templates.
     }
+
 
     @Override
     public String[] getAllRows() {
@@ -86,21 +90,8 @@ public class DoctorTable extends DatabaseInteraction {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public String[] getRowInRange() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean add() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    void remove(int doctorId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -108,9 +99,10 @@ public class DoctorTable extends DatabaseInteraction {
     public boolean delete() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public static void main(String args[]) {
-       DoctorTable dt= new DoctorTable();
-       dt.delete(31);
+
+    @Override
+    public boolean add() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 }

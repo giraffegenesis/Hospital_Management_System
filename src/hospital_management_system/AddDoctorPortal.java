@@ -6,7 +6,7 @@
 package hospital_management_system;
 
 import javax.swing.JOptionPane;
-import source_code.Doctor;
+
 
 /**
  * This class will create Doctor object from the information added by the Admin
@@ -228,7 +228,7 @@ public class AddDoctorPortal extends javax.swing.JFrame {
         String phoneNum = jTextFieldPhoneNumber.getText();
         String image = imagePath;
 
-        Doctor result;
+        int result;
         result = hms.addDoctor(firstName, lastName, phoneNum, image);
         
       // if (result == null) {

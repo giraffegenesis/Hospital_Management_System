@@ -113,25 +113,21 @@ public class AdminPortal extends javax.swing.JFrame {
         jPanelRightLayout.setHorizontalGroup(
             jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelRightLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
                         .addComponent(jToggleButtonAddPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jToggleButtonUpdatePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelRightLayout.createSequentialGroup()
-                        .addGap(247, 247, 247)
+                        .addComponent(jToggleButtonAddDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
                         .addComponent(jToggleButtonUpdateDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jToggleButtonDeletePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButtonDeleteDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
-            .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelRightLayout.createSequentialGroup()
-                    .addGap(26, 26, 26)
-                    .addComponent(jToggleButtonAddDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(468, Short.MAX_VALUE)))
         );
         jPanelRightLayout.setVerticalGroup(
             jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,7 +135,8 @@ public class AdminPortal extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jToggleButtonUpdateDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButtonDeleteDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jToggleButtonDeleteDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButtonAddDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -147,11 +144,6 @@ public class AdminPortal extends javax.swing.JFrame {
                         .addComponent(jToggleButtonUpdatePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jToggleButtonDeletePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(51, Short.MAX_VALUE))
-            .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelRightLayout.createSequentialGroup()
-                    .addGap(31, 31, 31)
-                    .addComponent(jToggleButtonAddDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(209, Short.MAX_VALUE)))
         );
 
         jPanelHeader.setBackground(new java.awt.Color(102, 204, 255));
@@ -222,14 +214,22 @@ public class AdminPortal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Update Doctor
     private void jToggleButtonUpdateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonUpdateDoctorActionPerformed
-        // TODO add your handling code here:
+
+        UpdateDoctorId updateDoc = new UpdateDoctorId();
+        updateDoc.setVisible(true);
+        updateDoc.pack();
+        updateDoc.setLocationRelativeTo(null);
+        updateDoc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_jToggleButtonUpdateDoctorActionPerformed
 
     private void jToggleButtonAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAddPatientActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButtonAddPatientActionPerformed
 
+    //add doctor
     private void jToggleButtonAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAddDoctorActionPerformed
         AddDoctorPortal addDoc = new AddDoctorPortal();
         addDoc.setVisible(true);
@@ -244,7 +244,12 @@ public class AdminPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButtonUpdatePatientActionPerformed
 
     private void jToggleButtonDeleteDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonDeleteDoctorActionPerformed
-        // TODO add your handling code here:
+        DeleteDoctorPortal deleteDoc = new DeleteDoctorPortal();
+        deleteDoc.setVisible(true);
+        deleteDoc.pack();
+        deleteDoc.setLocationRelativeTo(null);
+        deleteDoc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_jToggleButtonDeleteDoctorActionPerformed
 
     private void jToggleButtonDeletePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonDeletePatientActionPerformed
@@ -301,3 +306,4 @@ public class AdminPortal extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButtonUpdatePatient;
     // End of variables declaration//GEN-END:variables
 }
+
