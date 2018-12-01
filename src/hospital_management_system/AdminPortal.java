@@ -306,4 +306,3 @@ public class AdminPortal extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButtonUpdatePatient;
     // End of variables declaration//GEN-END:variables
 }
-

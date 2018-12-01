@@ -7,11 +7,11 @@ package hospital_management_system;
 
 import javax.swing.JOptionPane;
 
-
 /**
- * This class will create Doctor object from the information added by the Admin
+ * This class will create Doctor object from the information added by the
+ * Administrator
  *
- * @author general
+ * @author AbrarZawed
  */
 public class AddDoctorPortal extends javax.swing.JFrame {
 
@@ -227,15 +227,17 @@ public class AddDoctorPortal extends javax.swing.JFrame {
         String lastName = jTextFieldLastName.getText();
         String phoneNum = jTextFieldPhoneNumber.getText();
         String image = imagePath;
-
         int result;
-        result = hms.addDoctor(firstName, lastName, phoneNum, image);
-        
-      // if (result == null) {
-       //    JOptionPane.showMessageDialog(null, "Something Wrong, Doctor Information Wasn't Added");
-      //  }
-       JOptionPane.showMessageDialog(null, "Account Created" + result); // need to display the new doctor id created for future login
 
+        result = hms.addDoctor(firstName, lastName, phoneNum, image);
+
+        if (result == -1) {
+            JOptionPane.showMessageDialog(null, "Account Cannot be Created");
+            System.exit(0);
+        } else {
+            JOptionPane.showMessageDialog(null, "Account Created, New Doctor Id is " + result);
+            System.exit(0);
+        }
     }//GEN-LAST:event_jButtonAddDoctorActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
@@ -250,31 +252,6 @@ public class AddDoctorPortal extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddDoctorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddDoctorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddDoctorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddDoctorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

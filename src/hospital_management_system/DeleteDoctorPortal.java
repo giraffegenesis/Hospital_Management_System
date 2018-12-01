@@ -151,12 +151,14 @@ public class DeleteDoctorPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
-        int doctorId = Integer.parseInt(jTextFieldDoctorId.getText());
+       int doctorId = Integer.parseInt(jTextFieldDoctorId.getText());
         String result=hms.deleteDoctor(doctorId);
         if (result==null){
             throw new NullPointerException();
         }
-        JOptionPane.showMessageDialog(null, result + ", was deleted");
+        JOptionPane.showMessageDialog(null, result + " is deleted.");
+        System.exit(0);
+
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
     private void jTextFieldDoctorIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDoctorIdActionPerformed
