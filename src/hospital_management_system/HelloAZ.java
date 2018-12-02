@@ -10,5 +10,9 @@ package hospital_management_system;
  * @author general
  */
 public class HelloAZ {
-    
+    private String s1;
+
+    public HelloAZ() {
+        this.s1 = "Hi";
+    }
 }
