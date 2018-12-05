@@ -6,6 +6,9 @@
 package hospital_management_system;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +22,7 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
 
     private static HMS hms; // UI has an instance of facade HMS
     String imagePath;
-    public int currentUserId;
+    public int currentUserId;    //static???
 
     /**
      * Creates new form UpdateDoctorPortal
@@ -56,7 +59,7 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
         jButtonCancel = new javax.swing.JButton();
         jLabelUpdateDoctor = new javax.swing.JLabel();
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,13 +102,7 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
         jButtonUpdateDoctor.setText("Update");
         jButtonUpdateDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButtonUpdateDoctorActionPerformed(evt);
-                } catch (SQLException ex) {
-                    Logger.getLogger(UpdateDoctorPortal.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(UpdateDoctorPortal.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                jButtonUpdateDoctorActionPerformed(evt);
             }
         });
 
@@ -119,73 +116,73 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanelRightLayout = new javax.swing.GroupLayout(jPanelRight);
         jPanelRight.setLayout(jPanelRightLayout);
         jPanelRightLayout.setHorizontalGroup(
-                jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanelRightLayout.createSequentialGroup()
-                                .addGap(32, 32, 32)
+            jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRightLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelRightLayout.createSequentialGroup()
+                        .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelFirstName)
+                            .addComponent(jLabelLastName))
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightLayout.createSequentialGroup()
+                        .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelRightLayout.createSequentialGroup()
+                                .addComponent(jLabelProfile)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(jButtonProfilePictureBrowse))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelRightLayout.createSequentialGroup()
+                                .addComponent(jLabelPhoneNumber)
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanelRightLayout.createSequentialGroup()
-                                                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabelFirstName)
-                                                        .addComponent(jLabelLastName))
-                                                .addGap(51, 51, 51)
-                                                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jTextFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jTextFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightLayout.createSequentialGroup()
-                                                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addGroup(jPanelRightLayout.createSequentialGroup()
-                                                                .addComponent(jLabelProfile)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(jLabelProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(31, 31, 31)
-                                                                .addComponent(jButtonProfilePictureBrowse))
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelRightLayout.createSequentialGroup()
-                                                                .addComponent(jLabelPhoneNumber)
-                                                                .addGap(18, 18, 18)
-                                                                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(jPanelRightLayout.createSequentialGroup()
-                                                                                .addGap(49, 49, 49)
-                                                                                .addComponent(jButtonUpdateDoctor)
-                                                                                .addGap(18, 18, 18)
-                                                                                .addComponent(jButtonCancel))
-                                                                        .addComponent(jTextFieldPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGap(0, 21, Short.MAX_VALUE)))
-                                                .addGap(29, 29, 29))))
+                                    .addGroup(jPanelRightLayout.createSequentialGroup()
+                                        .addGap(49, 49, 49)
+                                        .addComponent(jButtonUpdateDoctor)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButtonCancel))
+                                    .addComponent(jTextFieldPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 21, Short.MAX_VALUE)))
+                        .addGap(29, 29, 29))))
         );
         jPanelRightLayout.setVerticalGroup(
-                jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanelRightLayout.createSequentialGroup()
-                                .addGap(48, 48, 48)
+            jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRightLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelFirstName)
+                    .addComponent(jTextFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelLastName)
+                    .addComponent(jTextFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelRightLayout.createSequentialGroup()
+                        .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelRightLayout.createSequentialGroup()
+                                .addGap(21, 21, 21)
                                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabelFirstName)
-                                        .addComponent(jTextFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(16, 16, 16)
-                                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabelLastName)
-                                        .addComponent(jTextFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightLayout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabelProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanelRightLayout.createSequentialGroup()
-                                                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanelRightLayout.createSequentialGroup()
-                                                                .addGap(21, 21, 21)
-                                                                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                        .addComponent(jLabelPhoneNumber)
-                                                                        .addComponent(jTextFieldPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGap(60, 60, 60)
-                                                                .addComponent(jLabelProfile))
-                                                        .addGroup(jPanelRightLayout.createSequentialGroup()
-                                                                .addGap(117, 117, 117)
-                                                                .addComponent(jButtonProfilePictureBrowse, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGap(0, 53, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButtonUpdateDoctor)
-                                        .addComponent(jButtonCancel))
-                                .addContainerGap(18, Short.MAX_VALUE))
+                                    .addComponent(jLabelPhoneNumber)
+                                    .addComponent(jTextFieldPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(60, 60, 60)
+                                .addComponent(jLabelProfile))
+                            .addGroup(jPanelRightLayout.createSequentialGroup()
+                                .addGap(117, 117, 117)
+                                .addComponent(jButtonProfilePictureBrowse, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 53, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonUpdateDoctor)
+                    .addComponent(jButtonCancel))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jLabelUpdateDoctor.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
@@ -195,31 +192,31 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanelBaseLayout = new javax.swing.GroupLayout(jPanelBase);
         jPanelBase.setLayout(jPanelBaseLayout);
         jPanelBaseLayout.setHorizontalGroup(
-                jPanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBaseLayout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabelUpdateDoctor)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                                .addComponent(jPanelRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            jPanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBaseLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabelUpdateDoctor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(jPanelRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanelBaseLayout.setVerticalGroup(
-                jPanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanelRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanelBaseLayout.createSequentialGroup()
-                                .addGap(191, 191, 191)
-                                .addComponent(jLabelUpdateDoctor)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            jPanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanelBaseLayout.createSequentialGroup()
+                .addGap(191, 191, 191)
+                .addComponent(jLabelUpdateDoctor)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanelBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanelBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -238,20 +235,26 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
-    private void jButtonUpdateDoctorActionPerformed(java.awt.event.ActionEvent evt) throws SQLException, IOException {//GEN-FIRST:event_jButtonUpdateDoctorActionPerformed
+    private void jButtonUpdateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateDoctorActionPerformed
         String firstName = jTextFieldFirstName.getText();
         String lastName = jTextFieldLastName.getText();
         String phoneNum = jTextFieldPhoneNumber.getText();
         String image = imagePath;
 
-        if(hms.updateDoctor(firstName, lastName, phoneNum, image, currentUserId) == true){
+        try {
+            if (hms.updateDoctor(firstName, lastName, phoneNum, image, currentUserId) == true) {
                 JOptionPane.showMessageDialog(null, "Doctor Information is Updated.");
                 System.exit(0);
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Something Went Wrong, Unable to Update Doctor Information.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Something Went Wrong, Unable to Update Doctor Information.");
                 System.exit(0);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UpdateDoctorPortal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(UpdateDoctorPortal.class.getName()).log(Level.SEVERE, null, ex);
         }
+
 
     }//GEN-LAST:event_jButtonUpdateDoctorActionPerformed
 

@@ -224,9 +224,14 @@ public class AdminPortal extends javax.swing.JFrame {
         updateDoc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jToggleButtonUpdateDoctorActionPerformed
-
+    //add patient
     private void jToggleButtonAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAddPatientActionPerformed
-        // TODO add your handling code here:
+        AddPatientPortal addPatient = new AddPatientPortal();
+        addPatient.setVisible(true);
+        addPatient.pack();
+        addPatient.setLocationRelativeTo(null);
+        addPatient.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_jToggleButtonAddPatientActionPerformed
 
     //add doctor
@@ -251,9 +256,14 @@ public class AdminPortal extends javax.swing.JFrame {
         deleteDoc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jToggleButtonDeleteDoctorActionPerformed
-
+//delete patient
     private void jToggleButtonDeletePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonDeletePatientActionPerformed
-        // TODO add your handling code here:
+        DeletePatientPortal deletePatient = new DeletePatientPortal();
+        deletePatient.setVisible(true);
+        deletePatient.pack();
+        deletePatient.setLocationRelativeTo(null);
+        deletePatient.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_jToggleButtonDeletePatientActionPerformed
 
     /**
