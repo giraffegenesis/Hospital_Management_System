@@ -5,10 +5,9 @@
  */
 package hospital_management_system;
 
-import java.io.File;
-import java.io.FileInputStream;
+
+
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +19,7 @@ import java.util.logging.Logger;
  *
  * @author general
  */
-public class PatientConnection {
+public class PatientConnection  {
 
     private Connection con;
 
@@ -48,7 +47,7 @@ public class PatientConnection {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    boolean delete(int patientId) {
+    public boolean delete(int patientId) {
           con = MyConnection.getConnection();
         try {
 
@@ -67,7 +66,7 @@ public class PatientConnection {
         throw new UnsupportedOperationException("Failed");
     }
 
-    ResultSet getPatientResultSet(int patientId) throws SQLException {
+    public ResultSet getPatientResultSet(int patientId) throws SQLException {
         con = MyConnection.getConnection();
         PreparedStatement ps;
 

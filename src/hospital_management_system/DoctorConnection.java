@@ -5,8 +5,6 @@
  */
 package hospital_management_system;
 
-import hospital_management_system.HMS;
-import hospital_management_system.MyConnection;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -14,20 +12,18 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import source_code.DatabaseInteraction;
 
 /**
  *
  * @author coolj
  */
-public class DoctorConnection extends DatabaseInteraction {
+public class DoctorConnection {
 
     private Connection con;
 
@@ -102,7 +98,7 @@ public class DoctorConnection extends DatabaseInteraction {
             } else {
                 return false;
             }
-        }     
+        }
     }
 
     public boolean delete(int doctorId) {
@@ -124,11 +120,6 @@ public class DoctorConnection extends DatabaseInteraction {
         throw new UnsupportedOperationException("Failed"); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public String[] getAllRows() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public ResultSet getDoctorResultSet(int doctorId) throws SQLException {
         con = MyConnection.getConnection();
         PreparedStatement ps;
@@ -139,43 +130,4 @@ public class DoctorConnection extends DatabaseInteraction {
         return ps.executeQuery();
 
     }
-
-    /**
-     *
-     * @return
-     */
-    @Override
-    public String[] getRowInRange() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean add() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    void remove(int doctorId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean delete() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getARow() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public boolean updateRow(int doctorId, String fName, String lName, String phoneNumber, String image) {
-        boolean result = false;
-        try {
-            result = true;
-        } catch (Exception ex) {
-            System.out.println("WHY GOD WHY...");
-        }
-        return result;
-    }
-
 }
