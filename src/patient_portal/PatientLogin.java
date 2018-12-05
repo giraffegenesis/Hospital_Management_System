@@ -163,9 +163,13 @@ public class PatientLogin extends javax.swing.JFrame {
                 pp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
                 pp.jTextFieldPatientId.setText(String.valueOf(patientId));
+                pp.jTextFieldPatientId.setEditable(false);
                 pp.jTextFieldFirstName.setText(rs.getString(1));
+                pp.jTextFieldFirstName.setEditable(false);
                 pp.jTextFieldLastName.setText(rs.getString(2));
+                pp.jTextFieldLastName.setEditable(false);
                 pp.jTextFieldPhoneNumber.setText(rs.getString(3));
+                pp.jTextFieldPhoneNumber.setEditable(false);
           
 
                 this.dispose();
