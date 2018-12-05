@@ -1,6 +1,7 @@
 
 package hospital_management_system;
 
+import doctor_portal.DoctorLogin;
 import javax.swing.JFrame;
 import patient_portal.PatientLogin;
 
@@ -127,9 +128,9 @@ public class Driver extends javax.swing.JFrame {
                 .addComponent(jLabelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(jButtonPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(35, 35, 35)
                 .addComponent(jButtonDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(26, 26, 26)
                 .addComponent(jButtonAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(101, Short.MAX_VALUE))
         );
@@ -159,9 +160,14 @@ public class Driver extends javax.swing.JFrame {
         patientLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jButtonPatientActionPerformed
-
+    // Doctor Portal
     private void jButtonDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDoctorActionPerformed
-        // TODO add your handling code here:
+        DoctorLogin doctorLogin = new DoctorLogin();
+        doctorLogin.setVisible(true);
+        doctorLogin.pack();
+        doctorLogin.setLocationRelativeTo(null);
+        doctorLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_jButtonDoctorActionPerformed
 
     /**
