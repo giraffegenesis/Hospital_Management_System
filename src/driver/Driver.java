@@ -1,6 +1,8 @@
 
 package hospital_management_system;
+
 import javax.swing.JFrame;
+import patient_portal.PatientLogin;
 
 /**
  * This is the beginning of the program containing the main() method
@@ -127,9 +129,9 @@ public class Driver extends javax.swing.JFrame {
                 .addComponent(jButtonPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jButtonDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(30, 30, 30)
                 .addComponent(jButtonAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -148,8 +150,14 @@ public class Driver extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Patient Portal
     private void jButtonPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPatientActionPerformed
-        // TODO add your handling code here:
+        PatientLogin patientLogin = new PatientLogin();
+        patientLogin.setVisible(true);
+        patientLogin.pack();
+        patientLogin.setLocationRelativeTo(null);
+        patientLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_jButtonPatientActionPerformed
 
     private void jButtonDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDoctorActionPerformed
@@ -158,7 +166,7 @@ public class Driver extends javax.swing.JFrame {
 
     /**
      * Method that access HospitalManagementSystem.java (facade) when client
-     * clicks Admin Button in Driver.java
+     * clicks Administrator Button in Driver.java
      *
      * @param evt
      */

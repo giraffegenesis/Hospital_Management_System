@@ -5,7 +5,6 @@
  */
 package hospital_management_system;
 
-
 import java.io.IOException;
 import java.sql.*;
 
