@@ -7,6 +7,7 @@ package hospital_management_system;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -64,5 +65,36 @@ public class PatientConnection {
             Logger.getLogger(DoctorConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
         throw new UnsupportedOperationException("Failed");
+    }
+
+    ResultSet getPatientResultSet(int patientId) throws SQLException {
+        con = MyConnection.getConnection();
+        PreparedStatement ps;
+
+        ps = con.prepareStatement("SELECT `fName`,`lName`,`phoneNumber`,`primaryCarePhysician` FROM `patient` WHERE `patientId`=?");
+        ps.setInt(1, patientId);
+
+        return ps.executeQuery();
+    }
+
+    public boolean update(String firstName, String lastName, String phoneNumber, String primaryCarePhysician, int currentPatientId) throws SQLException, IOException {
+        con = MyConnection.getConnection();
+        PreparedStatement ps;
+        String updateQuery = "";
+        
+        updateQuery = "UPDATE `patient` SET `fName`=?,`lName`=?,`phoneNumber`=?,`primaryCarePhysician`=? WHERE `patientId`=?";
+
+            ps = con.prepareStatement(updateQuery);
+            ps.setString(1, firstName);
+            ps.setString(2, lastName);
+            ps.setString(3, phoneNumber);
+            ps.setString(4, primaryCarePhysician);
+            ps.setInt(5,currentPatientId);
+
+            if (ps.executeUpdate() != 0) {
+                return true;
+            } else {
+                return false;
+            }
     }
 }

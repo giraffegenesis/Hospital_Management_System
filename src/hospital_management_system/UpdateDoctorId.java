@@ -6,11 +6,6 @@
 package hospital_management_system;
 
 import java.sql.*;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,16 +14,19 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * 
+ *
  * @author general
  */
 public class UpdateDoctorId extends javax.swing.JFrame {
+
+   private static HMS hms;
 
     /**
      * Creates new form UpdateDoctorId
      */
     public UpdateDoctorId() {
         initComponents();
+        hms = HMS.instance();
         this.setLocationRelativeTo(null);
     }
 
@@ -155,38 +153,31 @@ public class UpdateDoctorId extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_jButtonEnterActionPerformed
-        //Here
 
-        /*Connection con = MyConnection.getConnection();
-        PreparedStatement ps;
-        ResultSet rs;
-         */
         int id = Integer.parseInt(jTextFieldDoctorId.getText());
 
         // username and password is valid, now display contact form(patients form)
-        HMS hms = HMS.instance();
+     
         ResultSet rs = hms.getDoctor(id);
-          if (rs.next()) {
-                UpdateDoctorPortal udp = new UpdateDoctorPortal();
-                udp.currentUserId = id;
-                udp.setVisible(true);
-                udp.pack();
-                udp.setLocationRelativeTo(null);
-                udp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-                udp.jTextFieldFirstName.setText(rs.getString(1));
-                udp.jTextFieldLastName.setText(rs.getString(2));
-                udp.jTextFieldPhoneNumber.setText(rs.getString(3));
-                udp.jLabelProfilePicture.setIcon(new ProfilePictureProcessing().resizePic(null, rs.getBytes(4), udp.jLabelProfilePicture.getWidth(), udp.jLabelProfilePicture.getHeight()));
-
-                this.dispose();
-
-            } else {
-                JOptionPane.showMessageDialog(null, "There is an error...");
-            }
         
-        
-    
+        if (rs.next()) {
+            UpdateDoctorPortal udp = new UpdateDoctorPortal();
+            udp.currentUserId = id;
+            udp.setVisible(true);
+            udp.pack();
+            udp.setLocationRelativeTo(null);
+            udp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+            udp.jTextFieldFirstName.setText(rs.getString(1));
+            udp.jTextFieldLastName.setText(rs.getString(2));
+            udp.jTextFieldPhoneNumber.setText(rs.getString(3));
+            udp.jLabelProfilePicture.setIcon(new ProfilePictureProcessing().resizePic(null, rs.getBytes(4), udp.jLabelProfilePicture.getWidth(), udp.jLabelProfilePicture.getHeight()));
+
+            this.dispose();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "There is an error...");
+        }
 
     }//GEN-LAST:event_jButtonEnterActionPerformed
 

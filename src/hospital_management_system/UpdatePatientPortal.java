@@ -5,6 +5,7 @@
  */
 package hospital_management_system;
 
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -15,19 +16,17 @@ import javax.swing.JOptionPane;
  *
  * @author general
  */
-public class UpdateDoctorPortal extends javax.swing.JFrame {
+public class UpdatePatientPortal extends javax.swing.JFrame {
 
-    private static HMS hms; 
-    String imagePath;
-    public int currentUserId;    
+    public int currentPatientId;
+    private static HMS hms;
 
     /**
-     * Creates new form UpdateDoctorPortal
+     * Creates new form UpdatePatientPortal
      */
-    public UpdateDoctorPortal() {
+    public UpdatePatientPortal() {
         initComponents();
         hms = HMS.instance();
-        imagePath = null;
         this.setLocationRelativeTo(null);
     }
 
@@ -40,29 +39,25 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
         jPanelBase = new javax.swing.JPanel();
         jPanelRight = new javax.swing.JPanel();
         jLabelFirstName = new javax.swing.JLabel();
         jLabelLastName = new javax.swing.JLabel();
         jLabelPhoneNumber = new javax.swing.JLabel();
-        jLabelProfile = new javax.swing.JLabel();
+        jLabelPrimaryCarePhysicianId = new javax.swing.JLabel();
         jTextFieldFirstName = new javax.swing.JTextField();
         jTextFieldLastName = new javax.swing.JTextField();
         jTextFieldPhoneNumber = new javax.swing.JTextField();
-        jLabelProfilePicture = new javax.swing.JLabel();
-        jButtonProfilePictureBrowse = new javax.swing.JButton();
+        jTextFieldPrimaryCarePhysicianId = new javax.swing.JTextField();
         jButtonUpdateDoctor = new javax.swing.JButton();
         jButtonCancel = new javax.swing.JButton();
-        jLabelUpdateDoctor = new javax.swing.JLabel();
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanelBase.setBackground(new java.awt.Color(102, 102, 102));
 
-        jPanelRight.setBackground(new java.awt.Color(51, 204, 255));
+        jPanelRight.setBackground(new java.awt.Color(0, 204, 255));
 
         jLabelFirstName.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabelFirstName.setForeground(new java.awt.Color(102, 102, 102));
@@ -76,9 +71,9 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
         jLabelPhoneNumber.setForeground(new java.awt.Color(102, 102, 102));
         jLabelPhoneNumber.setText("Phone Number:");
 
-        jLabelProfile.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabelProfile.setForeground(new java.awt.Color(102, 102, 102));
-        jLabelProfile.setText("Profile Picture:");
+        jLabelPrimaryCarePhysicianId.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabelPrimaryCarePhysicianId.setForeground(new java.awt.Color(102, 102, 102));
+        jLabelPrimaryCarePhysicianId.setText("Primary Care Physician Id:");
 
         jTextFieldFirstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,13 +81,9 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
             }
         });
 
-        jLabelProfilePicture.setBackground(new java.awt.Color(153, 153, 153));
-        jLabelProfilePicture.setOpaque(true);
-
-        jButtonProfilePictureBrowse.setText("Browse");
-        jButtonProfilePictureBrowse.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldLastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonProfilePictureBrowseActionPerformed(evt);
+                jTextFieldLastNameActionPerformed(evt);
             }
         });
 
@@ -115,85 +106,72 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
         jPanelRightLayout.setHorizontalGroup(
             jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRightLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(39, 39, 39)
+                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelFirstName)
+                    .addComponent(jLabelPrimaryCarePhysicianId)
+                    .addComponent(jLabelPhoneNumber)
+                    .addComponent(jLabelLastName))
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelRightLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                         .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelFirstName)
-                            .addComponent(jLabelLastName))
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightLayout.createSequentialGroup()
-                        .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelRightLayout.createSequentialGroup()
-                                .addComponent(jLabelProfile)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(jButtonProfilePictureBrowse))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelRightLayout.createSequentialGroup()
-                                .addComponent(jLabelPhoneNumber)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelRightLayout.createSequentialGroup()
-                                        .addGap(49, 49, 49)
-                                        .addComponent(jButtonUpdateDoctor)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButtonCancel))
-                                    .addComponent(jTextFieldPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 21, Short.MAX_VALUE)))
-                        .addGap(29, 29, 29))))
+                            .addComponent(jTextFieldPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27))
+                    .addGroup(jPanelRightLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldPrimaryCarePhysicianId, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanelRightLayout.createSequentialGroup()
+                .addGap(208, 208, 208)
+                .addComponent(jButtonUpdateDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonCancel)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelRightLayout.setVerticalGroup(
             jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRightLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(71, 71, 71)
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelFirstName)
                     .addComponent(jTextFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
+                .addGap(5, 5, 5)
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelLastName)
                     .addComponent(jTextFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelRightLayout.createSequentialGroup()
-                        .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelRightLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabelPhoneNumber)
-                                    .addComponent(jTextFieldPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(60, 60, 60)
-                                .addComponent(jLabelProfile))
-                            .addGroup(jPanelRightLayout.createSequentialGroup()
-                                .addGap(117, 117, 117)
-                                .addComponent(jButtonProfilePictureBrowse, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 53, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(8, 8, 8)
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonUpdateDoctor)
-                    .addComponent(jButtonCancel))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addComponent(jLabelPhoneNumber)
+                    .addComponent(jTextFieldPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelRightLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabelPrimaryCarePhysicianId))
+                    .addGroup(jPanelRightLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldPrimaryCarePhysicianId, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33)
+                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonUpdateDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        jLabelUpdateDoctor.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabelUpdateDoctor.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelUpdateDoctor.setText("Update Doctor");
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Update Patient");
 
         javax.swing.GroupLayout jPanelBaseLayout = new javax.swing.GroupLayout(jPanelBase);
         jPanelBase.setLayout(jPanelBaseLayout);
         jPanelBaseLayout.setHorizontalGroup(
             jPanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBaseLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabelUpdateDoctor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanelRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanelBaseLayout.setVerticalGroup(
@@ -201,7 +179,7 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
             .addComponent(jPanelRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanelBaseLayout.createSequentialGroup()
                 .addGap(191, 191, 191)
-                .addComponent(jLabelUpdateDoctor)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -223,37 +201,36 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFirstNameActionPerformed
 
-    private void jButtonProfilePictureBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProfilePictureBrowseActionPerformed
-        ProfilePictureProcessing ppp = new ProfilePictureProcessing();
-        imagePath = ppp.browseImage(jLabelProfilePicture);
-    }//GEN-LAST:event_jButtonProfilePictureBrowseActionPerformed
-
-    private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jButtonCancelActionPerformed
+    private void jTextFieldLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLastNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldLastNameActionPerformed
 
     private void jButtonUpdateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateDoctorActionPerformed
         String firstName = jTextFieldFirstName.getText();
         String lastName = jTextFieldLastName.getText();
-        String phoneNum = jTextFieldPhoneNumber.getText();
-        String image = imagePath;
+        String phoneNumber = jTextFieldPhoneNumber.getText();
+        String primaryCarePhysician = jTextFieldPrimaryCarePhysicianId.getText();
 
         try {
-            if (hms.updateDoctor(firstName, lastName, phoneNum, image, currentUserId) == true) {
-                JOptionPane.showMessageDialog(null, "Doctor Information is Updated.");
+            if (hms.updatePatient(firstName, lastName, phoneNumber, primaryCarePhysician, currentPatientId) == true) {
+                JOptionPane.showMessageDialog(null, "Patient Information is Updated.");
                 System.exit(0);
             } else {
                 JOptionPane.showMessageDialog(null, "Something Went Wrong, Unable to Update Doctor Information.");
                 System.exit(0);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(UpdateDoctorPortal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UpdatePatientPortal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(UpdateDoctorPortal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UpdatePatientPortal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
     }//GEN-LAST:event_jButtonUpdateDoctorActionPerformed
+
+    private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButtonCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,39 +249,37 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UpdateDoctorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdatePatientPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UpdateDoctorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdatePatientPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UpdateDoctorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdatePatientPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UpdateDoctorPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdatePatientPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UpdateDoctorPortal().setVisible(true);
+                new UpdatePatientPortal().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;
-    private javax.swing.JButton jButtonProfilePictureBrowse;
     private javax.swing.JButton jButtonUpdateDoctor;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelFirstName;
     private javax.swing.JLabel jLabelLastName;
     private javax.swing.JLabel jLabelPhoneNumber;
-    private javax.swing.JLabel jLabelProfile;
-    public javax.swing.JLabel jLabelProfilePicture;
-    private javax.swing.JLabel jLabelUpdateDoctor;
+    private javax.swing.JLabel jLabelPrimaryCarePhysicianId;
     private javax.swing.JPanel jPanelBase;
     private javax.swing.JPanel jPanelRight;
     public javax.swing.JTextField jTextFieldFirstName;
     public javax.swing.JTextField jTextFieldLastName;
     public javax.swing.JTextField jTextFieldPhoneNumber;
+    public javax.swing.JTextField jTextFieldPrimaryCarePhysicianId;
     // End of variables declaration//GEN-END:variables
 }

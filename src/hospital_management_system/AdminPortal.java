@@ -243,9 +243,14 @@ public class AdminPortal extends javax.swing.JFrame {
         addDoc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jToggleButtonAddDoctorActionPerformed
-
+    //update patient
     private void jToggleButtonUpdatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonUpdatePatientActionPerformed
-        // TODO add your handling code here:
+        UpdatePatientId updatePatient = new UpdatePatientId();
+        updatePatient.setVisible(true);
+        updatePatient.pack();
+        updatePatient.setLocationRelativeTo(null);
+        updatePatient.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }//GEN-LAST:event_jToggleButtonUpdatePatientActionPerformed
 
     private void jToggleButtonDeleteDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonDeleteDoctorActionPerformed

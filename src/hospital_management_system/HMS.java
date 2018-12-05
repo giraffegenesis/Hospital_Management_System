@@ -5,12 +5,10 @@
  */
 package hospital_management_system;
 
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
-import java.util.Iterator;
+
 
 /**
  *
@@ -58,7 +56,13 @@ public class HMS {
     public ResultSet getDoctor(int doctorId) throws SQLException {
         ResultSet result;
         DoctorConnection dt = new DoctorConnection();
-        result = dt.getAResultSet(doctorId);
+        result = dt.getDoctorResultSet(doctorId);
+        return result;
+    }
+     public ResultSet getPatient(int patientId) throws SQLException {
+        ResultSet result;
+        PatientConnection pc = new PatientConnection();
+        result = pc.getPatientResultSet(patientId);
         return result;
     }
 
@@ -120,5 +124,12 @@ public class HMS {
         }
         return null;
     }
+
+    public boolean updatePatient(String firstName, String lastName, String phoneNumber, String primaryCarePhysician, int currentPatientId) throws SQLException, IOException{
+        PatientConnection pc = new PatientConnection();
+        return pc.update(firstName, lastName, phoneNumber, primaryCarePhysician, currentPatientId);
+    }
+
+   
 
 }

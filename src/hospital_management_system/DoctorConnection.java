@@ -129,7 +129,7 @@ public class DoctorConnection extends DatabaseInteraction {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public ResultSet getAResultSet(int doctorId) throws SQLException {
+    public ResultSet getDoctorResultSet(int doctorId) throws SQLException {
         con = MyConnection.getConnection();
         PreparedStatement ps;
 
