@@ -6,6 +6,7 @@
 package doctor_portal;
 
 import hospital_management_system.HMS;
+import hospital_management_system.ProfilePictureProcessing;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -184,8 +185,9 @@ public class DoctorLogin extends javax.swing.JFrame {
                 
                 dp.jTextFieldPhoneNumber.setText(rs.getString(3));
                 dp.jTextFieldPhoneNumber.setEditable(false);
-          
-//profile pic
+                
+                dp.jLabelProfilePicture.setIcon(new ProfilePictureProcessing().resizePic(null, rs.getBytes(4), dp.jLabelProfilePicture.getWidth(), dp.jLabelProfilePicture.getHeight()));
+
                 this.dispose();
 
             } else {

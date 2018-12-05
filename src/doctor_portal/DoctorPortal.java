@@ -279,7 +279,7 @@ public class DoctorPortal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDoctorLastName;
     private javax.swing.JLabel jLabelDoctorPhoneNumber;
     private javax.swing.JLabel jLabelFutureImplementation;
-    private javax.swing.JLabel jLabelProfilePicture;
+    public javax.swing.JLabel jLabelProfilePicture;
     private javax.swing.JPanel jPanelBase;
     private javax.swing.JPanel jPanelLeft;
     private javax.swing.JPanel jPanelRight;
