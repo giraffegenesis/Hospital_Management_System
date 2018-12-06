@@ -14,7 +14,6 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author general
@@ -47,6 +46,10 @@ public class DoctorLogin extends javax.swing.JFrame {
         jTextFieldDoctorId = new javax.swing.JTextField();
         jButtonCancel = new javax.swing.JButton();
         jButtonEnter = new javax.swing.JButton();
+        jLabelDoctorFirstName = new javax.swing.JLabel();
+        jLabelDoctorLastName = new javax.swing.JLabel();
+        jTextFieldDoctorFirstName = new javax.swing.JTextField();
+        jTextFieldDoctorLastName = new javax.swing.JTextField();
         jLabelDoctorLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,7 +59,7 @@ public class DoctorLogin extends javax.swing.JFrame {
         jPanelRight.setBackground(new java.awt.Color(0, 204, 255));
 
         jLabelDoctorId.setBackground(new java.awt.Color(153, 153, 153));
-        jLabelDoctorId.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabelDoctorId.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
         jLabelDoctorId.setForeground(new java.awt.Color(102, 102, 102));
         jLabelDoctorId.setText("Doctor Id:");
 
@@ -73,10 +76,32 @@ public class DoctorLogin extends javax.swing.JFrame {
             }
         });
 
-        jButtonEnter.setText("Enter");
+        jButtonEnter.setText("Login");
         jButtonEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEnterActionPerformed(evt);
+            }
+        });
+
+        jLabelDoctorFirstName.setBackground(new java.awt.Color(153, 153, 153));
+        jLabelDoctorFirstName.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        jLabelDoctorFirstName.setForeground(new java.awt.Color(102, 102, 102));
+        jLabelDoctorFirstName.setText("Doctor First Name:");
+
+        jLabelDoctorLastName.setBackground(new java.awt.Color(153, 153, 153));
+        jLabelDoctorLastName.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        jLabelDoctorLastName.setForeground(new java.awt.Color(102, 102, 102));
+        jLabelDoctorLastName.setText("Doctor Last Name:");
+
+        jTextFieldDoctorFirstName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDoctorFirstNameActionPerformed(evt);
+            }
+        });
+
+        jTextFieldDoctorLastName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDoctorLastNameActionPerformed(evt);
             }
         });
 
@@ -85,30 +110,48 @@ public class DoctorLogin extends javax.swing.JFrame {
         jPanelRightLayout.setHorizontalGroup(
             jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRightLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabelDoctorId)
-                .addGap(18, 18, 18)
-                .addComponent(jTextFieldDoctorId, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelRightLayout.createSequentialGroup()
+                        .addComponent(jLabelDoctorId)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldDoctorId, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelRightLayout.createSequentialGroup()
+                        .addComponent(jLabelDoctorFirstName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldDoctorFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelRightLayout.createSequentialGroup()
+                        .addComponent(jLabelDoctorLastName)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldDoctorLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76))
+                .addComponent(jButtonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
         jPanelRightLayout.setVerticalGroup(
             jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRightLayout.createSequentialGroup()
-                .addGap(169, 169, 169)
+                .addGap(74, 74, 74)
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDoctorId)
                     .addComponent(jTextFieldDoctorId, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(jButtonEnter, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
-                .addGap(101, 101, 101))
+                    .addComponent(jLabelDoctorFirstName)
+                    .addComponent(jTextFieldDoctorFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldDoctorLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelDoctorLastName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56))
         );
 
         jLabelDoctorLogin.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
@@ -120,7 +163,7 @@ public class DoctorLogin extends javax.swing.JFrame {
         jPanelBaseLayout.setHorizontalGroup(
             jPanelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBaseLayout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addComponent(jLabelDoctorLogin)
                 .addGap(18, 18, 18)
                 .addComponent(jPanelRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -161,47 +204,60 @@ public class DoctorLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterActionPerformed
-        int doctorId = Integer.parseInt(jTextFieldDoctorId.getText());
+        int doctorId = Integer.parseInt(jTextFieldDoctorId.getText());  //user input
+        String fName = jTextFieldDoctorFirstName.getText(); //user input
+        String lName = jTextFieldDoctorLastName.getText();  //user input
 
         ResultSet rs;
 
         try {
             rs = hms.getDoctor(doctorId);
-              if (rs.next()) {
-                DoctorPortal dp = new DoctorPortal();
-                dp.setVisible(true);
-                dp.pack();
-                dp.setLocationRelativeTo(null);
-                dp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            if (rs.next()) {
 
-                dp.jTextFieldDoctorId.setText(String.valueOf(doctorId)); //done
-                dp.jTextFieldDoctorId.setEditable(false);
-                
-                dp.jTextFieldFirstName.setText(rs.getString(1));
-                dp.jTextFieldFirstName.setEditable(false);
-                
-                dp.jTextFieldLastName.setText(rs.getString(2));
-                dp.jTextFieldLastName.setEditable(false);
-                
-                dp.jTextFieldPhoneNumber.setText(rs.getString(3));
-                dp.jTextFieldPhoneNumber.setEditable(false);
-                
-                dp.jLabelProfilePicture.setIcon(new ProfilePictureProcessing().resizePic(null, rs.getBytes(4), dp.jLabelProfilePicture.getWidth(), dp.jLabelProfilePicture.getHeight()));
+                String fName_from_db = rs.getString(1); //db output
+                String lName_from_db = rs.getString(2); //db output
 
-                this.dispose();
+                if (fName_from_db.equalsIgnoreCase(fName) && lName_from_db.equalsIgnoreCase(lName)) {
+                    DoctorPortal dp = new DoctorPortal();
+                    dp.setVisible(true);
+                    dp.pack();
+                    dp.setLocationRelativeTo(null);
+                    dp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-            } else {
-                JOptionPane.showMessageDialog(null, "There is an error...");
+                    dp.jTextFieldDoctorId.setText(String.valueOf(doctorId)); //done
+                    dp.jTextFieldDoctorId.setEditable(false);
+
+                    dp.jTextFieldFirstName.setText(rs.getString(1));
+                    dp.jTextFieldFirstName.setEditable(false);
+
+                    dp.jTextFieldLastName.setText(rs.getString(2));
+                    dp.jTextFieldLastName.setEditable(false);
+
+                    dp.jTextFieldPhoneNumber.setText(rs.getString(3));
+                    dp.jTextFieldPhoneNumber.setEditable(false);
+
+                    dp.jLabelProfilePicture.setIcon(new ProfilePictureProcessing().resizePic(null, rs.getBytes(4), dp.jLabelProfilePicture.getWidth(), dp.jLabelProfilePicture.getHeight()));
+
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Wrong Inputs, Please Enter Valid Inputs.");
+                }
             }
-            
-            
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(DoctorLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
     }//GEN-LAST:event_jButtonEnterActionPerformed
+
+    private void jTextFieldDoctorFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDoctorFirstNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDoctorFirstNameActionPerformed
+
+    private void jTextFieldDoctorLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDoctorLastNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDoctorLastNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,10 +297,14 @@ public class DoctorLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;
     private javax.swing.JButton jButtonEnter;
+    private javax.swing.JLabel jLabelDoctorFirstName;
     private javax.swing.JLabel jLabelDoctorId;
+    private javax.swing.JLabel jLabelDoctorLastName;
     private javax.swing.JLabel jLabelDoctorLogin;
     private javax.swing.JPanel jPanelBase;
     private javax.swing.JPanel jPanelRight;
+    private javax.swing.JTextField jTextFieldDoctorFirstName;
     private javax.swing.JTextField jTextFieldDoctorId;
+    private javax.swing.JTextField jTextFieldDoctorLastName;
     // End of variables declaration//GEN-END:variables
 }
