@@ -148,7 +148,8 @@ public class DeleteDoctorPortal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        System.exit(0);
+        this.dispose();
+        Driver.main(null);
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
@@ -158,7 +159,8 @@ public class DeleteDoctorPortal extends javax.swing.JFrame {
             throw new NullPointerException();
         }
         JOptionPane.showMessageDialog(null, result + " is deleted.");
-        System.exit(0);
+        this.dispose();
+        Driver.main(null);
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
     private void jTextFieldDoctorIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDoctorIdActionPerformed

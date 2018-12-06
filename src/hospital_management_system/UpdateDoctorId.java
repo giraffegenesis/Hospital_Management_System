@@ -182,8 +182,9 @@ public class UpdateDoctorId extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEnterActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jButtonCancelActionPerformed
+        this.dispose();
+        Driver.main(null);
+    }
 
     /**
      * @param args the command line arguments

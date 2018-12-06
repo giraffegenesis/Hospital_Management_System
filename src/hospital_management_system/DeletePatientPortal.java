@@ -145,7 +145,8 @@ public class DeletePatientPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPatientIdActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        System.exit(0);
+        this.dispose();
+        Driver.main(null);
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
@@ -155,7 +156,8 @@ public class DeletePatientPortal extends javax.swing.JFrame {
             throw new NullPointerException();
         }
         JOptionPane.showMessageDialog(null, "Patient "+result + " is deleted.");
-        System.exit(0);
+        this.dispose();
+        Driver.main(null);
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
     /**

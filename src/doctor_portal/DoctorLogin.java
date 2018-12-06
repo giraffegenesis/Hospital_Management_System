@@ -5,6 +5,7 @@
  */
 package doctor_portal;
 
+import hospital_management_system.Driver;
 import hospital_management_system.HMS;
 import hospital_management_system.ProfilePictureProcessing;
 import java.sql.ResultSet;
@@ -200,7 +201,8 @@ public class DoctorLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDoctorIdActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        System.exit(0);
+        this.dispose();
+        Driver.main(null);
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterActionPerformed

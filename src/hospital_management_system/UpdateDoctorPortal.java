@@ -17,9 +17,9 @@ import javax.swing.JOptionPane;
  */
 public class UpdateDoctorPortal extends javax.swing.JFrame {
 
-    private static HMS hms; 
+    private static HMS hms;
     String imagePath;
-    public int currentUserId;    
+    public int currentUserId;
 
     /**
      * Creates new form UpdateDoctorPortal
@@ -229,7 +229,8 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonProfilePictureBrowseActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        System.exit(0);
+        this.dispose();
+        Driver.main(null);
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonUpdateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateDoctorActionPerformed
@@ -241,10 +242,12 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
         try {
             if (hms.updateDoctor(firstName, lastName, phoneNum, image, currentUserId) == true) {
                 JOptionPane.showMessageDialog(null, "Doctor Information is Updated.");
-                System.exit(0);
+                this.dispose();
+                Driver.main(null);
             } else {
                 JOptionPane.showMessageDialog(null, "Something Went Wrong, Unable to Update Doctor Information.");
-                System.exit(0);
+                this.dispose();
+                Driver.main(null);
             }
         } catch (SQLException ex) {
             Logger.getLogger(UpdateDoctorPortal.class.getName()).log(Level.SEVERE, null, ex);

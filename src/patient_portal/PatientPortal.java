@@ -5,6 +5,8 @@
  */
 package patient_portal;
 
+import hospital_management_system.Driver;
+
 /**
  *
  * @author general
@@ -227,7 +229,8 @@ public class PatientPortal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
-        System.exit(0);
+        this.dispose();
+        Driver.main(null);
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jTextFieldPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneNumberActionPerformed

@@ -5,7 +5,6 @@
  */
 package hospital_management_system;
 
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -214,10 +213,12 @@ public class UpdatePatientPortal extends javax.swing.JFrame {
         try {
             if (hms.updatePatient(firstName, lastName, phoneNumber, primaryCarePhysician, currentPatientId) == true) {
                 JOptionPane.showMessageDialog(null, "Patient Information is Updated.");
-                System.exit(0);
+                this.dispose();
+                Driver.main(null);
             } else {
                 JOptionPane.showMessageDialog(null, "Something Went Wrong, Unable to Update Doctor Information.");
-                System.exit(0);
+                this.dispose();
+                Driver.main(null);
             }
         } catch (SQLException ex) {
             Logger.getLogger(UpdatePatientPortal.class.getName()).log(Level.SEVERE, null, ex);
@@ -229,7 +230,8 @@ public class UpdatePatientPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonUpdateDoctorActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        System.exit(0);
+        this.dispose();
+        Driver.main(null);
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     /**

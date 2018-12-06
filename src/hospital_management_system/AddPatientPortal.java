@@ -224,7 +224,8 @@ public class AddPatientPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPrimarycarePhysicianIDActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        System.exit(0);
+        this.dispose();
+        Driver.main(null);
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPatientActionPerformed
@@ -237,10 +238,12 @@ public class AddPatientPortal extends javax.swing.JFrame {
         result = hms.addPatient(firstName, lastName, phoneNum, primaryCarePhysicianId);
         if (result == -1) {
             JOptionPane.showMessageDialog(null, "Account Cannot be Created");
-            System.exit(0);
+            this.dispose();
+            Driver.main(null);
         } else {
             JOptionPane.showMessageDialog(null, "Account Created, New Patient Id is " + result);
-            System.exit(0);
+            this.dispose();
+            Driver.main(null);
         }
 
     }//GEN-LAST:event_jButtonAddPatientActionPerformed

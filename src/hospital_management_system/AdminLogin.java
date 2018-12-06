@@ -205,7 +205,8 @@ public class AdminLogin extends javax.swing.JFrame {
 
     // GUI window is closed upon clicking this button
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        System.exit(0);
+        this.dispose();
+        Driver.main(null);
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     /**
