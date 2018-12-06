@@ -46,6 +46,10 @@ public class PatientLogin extends javax.swing.JFrame {
         jTextFieldPatientId = new javax.swing.JTextField();
         jButtonCancel = new javax.swing.JButton();
         jButtonEnter = new javax.swing.JButton();
+        jLabelPatientFirstName = new javax.swing.JLabel();
+        jLabelPatientLastName = new javax.swing.JLabel();
+        jTextFieldPatientLastName = new javax.swing.JTextField();
+        jTextFieldPatientFirstName = new javax.swing.JTextField();
         jLabelPateintLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,41 +69,69 @@ public class PatientLogin extends javax.swing.JFrame {
             }
         });
 
-        jButtonEnter.setText("Enter");
+        jButtonEnter.setText("Login");
         jButtonEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEnterActionPerformed(evt);
             }
         });
 
+        jLabelPatientFirstName.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        jLabelPatientFirstName.setForeground(new java.awt.Color(102, 102, 102));
+        jLabelPatientFirstName.setText("Patient First Name:");
+
+        jLabelPatientLastName.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        jLabelPatientLastName.setForeground(new java.awt.Color(102, 102, 102));
+        jLabelPatientLastName.setText("Patient Last Name:");
+
         javax.swing.GroupLayout jPanelRightLayout = new javax.swing.GroupLayout(jPanelRight);
         jPanelRight.setLayout(jPanelRightLayout);
         jPanelRightLayout.setHorizontalGroup(
             jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRightLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelPatientId)
-                .addGap(31, 31, 31)
-                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelRightLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
                         .addComponent(jButtonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(28, 28, 28)
                         .addComponent(jButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextFieldPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(99, Short.MAX_VALUE))
+                    .addGroup(jPanelRightLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelRightLayout.createSequentialGroup()
+                                .addComponent(jLabelPatientId)
+                                .addGap(88, 88, 88)
+                                .addComponent(jTextFieldPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelRightLayout.createSequentialGroup()
+                                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabelPatientFirstName)
+                                    .addComponent(jLabelPatientLastName))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldPatientLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldPatientFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanelRightLayout.setVerticalGroup(
             jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRightLayout.createSequentialGroup()
-                .addGap(165, 165, 165)
+                .addGap(68, 68, 68)
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPatientId)
                     .addComponent(jTextFieldPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(16, 16, 16)
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(104, Short.MAX_VALUE))
+                    .addComponent(jLabelPatientFirstName)
+                    .addComponent(jTextFieldPatientFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelPatientLastName)
+                    .addComponent(jTextFieldPatientLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46))
         );
 
         jLabelPateintLogin.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
@@ -126,7 +158,7 @@ public class PatientLogin extends javax.swing.JFrame {
             .addGroup(jPanelBaseLayout.createSequentialGroup()
                 .addGap(181, 181, 181)
                 .addComponent(jLabelPateintLogin)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -148,32 +180,38 @@ public class PatientLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterActionPerformed
-        int patientId = Integer.parseInt(jTextFieldPatientId.getText());
+        int patientId = Integer.parseInt(jTextFieldPatientId.getText());    //input from user
+        String fName = jTextFieldPatientFirstName.getText();    //input from user
+        String lName = jTextFieldPatientLastName.getText();     //input from user
 
-        ResultSet rs;
         try {
+            ResultSet rs;
             rs = hms.getPatient(patientId);
             if (rs.next()) {
-                PatientPortal pp = new PatientPortal();
-                pp.setVisible(true);
-                pp.pack();
-                pp.setLocationRelativeTo(null);
-                pp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-                pp.jTextFieldPatientId.setText(String.valueOf(patientId));
-                pp.jTextFieldPatientId.setEditable(false);
-                pp.jTextFieldFirstName.setText(rs.getString(1));
-                pp.jTextFieldFirstName.setEditable(false);
-                pp.jTextFieldLastName.setText(rs.getString(2));
-                pp.jTextFieldLastName.setEditable(false);
-                pp.jTextFieldPhoneNumber.setText(rs.getString(3));
-                pp.jTextFieldPhoneNumber.setEditable(false);
-          
+                String fName_from_db = rs.getString(1); //db output
+                String lName_from_db = rs.getString(2); //db output
 
-                this.dispose();
+                // compare the user input with db output
+                if (fName_from_db.equalsIgnoreCase(fName) && lName_from_db.equalsIgnoreCase(lName)) {
+                    PatientPortal pp = new PatientPortal();
+                    pp.setVisible(true);
+                    pp.pack();
+                    pp.setLocationRelativeTo(null);
+                    pp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-            } else {
-                JOptionPane.showMessageDialog(null, "There is an error...");
+                    pp.jTextFieldPatientId.setText(String.valueOf(patientId));
+                    pp.jTextFieldPatientId.setEditable(false);
+                    pp.jTextFieldFirstName.setText(rs.getString(1));
+                    pp.jTextFieldFirstName.setEditable(false);
+                    pp.jTextFieldLastName.setText(rs.getString(2));
+                    pp.jTextFieldLastName.setEditable(false);
+                    pp.jTextFieldPhoneNumber.setText(rs.getString(3));
+                    pp.jTextFieldPhoneNumber.setEditable(false);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Wrong Inputs, Please Enter Valid Inputs.");
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(UpdatePatientId.class.getName()).log(Level.SEVERE, null, ex);
@@ -221,9 +259,13 @@ public class PatientLogin extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancel;
     private javax.swing.JButton jButtonEnter;
     private javax.swing.JLabel jLabelPateintLogin;
+    private javax.swing.JLabel jLabelPatientFirstName;
     private javax.swing.JLabel jLabelPatientId;
+    private javax.swing.JLabel jLabelPatientLastName;
     private javax.swing.JPanel jPanelBase;
     private javax.swing.JPanel jPanelRight;
+    private javax.swing.JTextField jTextFieldPatientFirstName;
     private javax.swing.JTextField jTextFieldPatientId;
+    private javax.swing.JTextField jTextFieldPatientLastName;
     // End of variables declaration//GEN-END:variables
 }

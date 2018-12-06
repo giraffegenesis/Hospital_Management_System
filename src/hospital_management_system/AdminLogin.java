@@ -97,14 +97,11 @@ public class AdminLogin extends javax.swing.JFrame {
             .addGroup(jPanelRightLayout.createSequentialGroup()
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelRightLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
+                        .addGap(58, 58, 58)
                         .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRightLayout.createSequentialGroup()
-                                .addComponent(jLabelAdminUserName)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(jPanelRightLayout.createSequentialGroup()
-                                .addComponent(jLabelAdminPassword)
-                                .addGap(25, 25, 25)))
+                            .addComponent(jLabelAdminUserName)
+                            .addComponent(jLabelAdminPassword))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldAdminKeyword, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPasswordFieldAdminPawword, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -181,12 +178,13 @@ public class AdminLogin extends javax.swing.JFrame {
         String password = new String(jPasswordFieldAdminPawword.getPassword());  //from user input
 
         try {
-            ResultSet rs = hms.getAdmin(keyword, password);
+            ResultSet rs = hms.getAdminVerification(keyword, password);
 
             if (rs.next()) {
-                String keyword_from_db = rs.getString(1);
-                String password_from_db = rs.getString(2);
+                String keyword_from_db = rs.getString(1);   //output from db
+                String password_from_db = rs.getString(2);  //output from db
 
+                // compare the user input with db output
                 if (keyword_from_db.equalsIgnoreCase(keyword) && password_from_db.equalsIgnoreCase(password)) {
                     AdminPortal adminLOptions = new AdminPortal();
                     adminLOptions.setVisible(true);
@@ -194,9 +192,8 @@ public class AdminLogin extends javax.swing.JFrame {
                     adminLOptions.setLocationRelativeTo(null);
                     adminLOptions.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     this.dispose();
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Incorrect keyword or password.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Incorrect keyword or password. Please try again");
                 }
 
             }
