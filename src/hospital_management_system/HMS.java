@@ -129,6 +129,13 @@ public class HMS {
         return pc.update(firstName, lastName, phoneNumber, primaryCarePhysician, currentPatientId);
     }
 
+    public ResultSet getAdmin(String keyword, String password) throws SQLException {
+        ResultSet result;
+        AdminConnection ac = new AdminConnection();
+        result = ac.verifyAdmin(keyword,password);
+        return result;
+    }
+
    
 
 }

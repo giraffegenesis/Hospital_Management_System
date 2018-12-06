@@ -5,7 +5,12 @@
  */
 package hospital_management_system;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,12 +18,16 @@ import javax.swing.JFrame;
  */
 public class AdminLogin extends javax.swing.JFrame {
 
+    private static HMS hms;
+
     /**
      * Creates new form AdminLogin
      */
     public AdminLogin() {
         initComponents();
         this.setLocationRelativeTo(null);
+        hms = HMS.instance();
+
     }
 
     /**
@@ -35,8 +44,8 @@ public class AdminLogin extends javax.swing.JFrame {
         jLabelAdminPassword = new javax.swing.JLabel();
         jLabelAdminUserName = new javax.swing.JLabel();
         jLabelHeader = new javax.swing.JLabel();
-        jPasswordFieldAdmin = new javax.swing.JPasswordField();
-        jTextFieldAdminUserName = new javax.swing.JTextField();
+        jPasswordFieldAdminPawword = new javax.swing.JPasswordField();
+        jTextFieldAdminKeyword = new javax.swing.JTextField();
         jButtonLogin = new javax.swing.JButton();
         jButtonCancel = new javax.swing.JButton();
         jLabelAdminLogin = new javax.swing.JLabel();
@@ -53,7 +62,7 @@ public class AdminLogin extends javax.swing.JFrame {
 
         jLabelAdminUserName.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabelAdminUserName.setForeground(new java.awt.Color(102, 102, 102));
-        jLabelAdminUserName.setText("User Name:");
+        jLabelAdminUserName.setText("Keyword:");
 
         jLabelHeader.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         jLabelHeader.setForeground(new java.awt.Color(102, 102, 102));
@@ -97,8 +106,8 @@ public class AdminLogin extends javax.swing.JFrame {
                                 .addComponent(jLabelAdminPassword)
                                 .addGap(25, 25, 25)))
                         .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldAdminUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPasswordFieldAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldAdminKeyword, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPasswordFieldAdminPawword, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelRightLayout.createSequentialGroup()
                                 .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -116,11 +125,11 @@ public class AdminLogin extends javax.swing.JFrame {
                 .addGap(68, 68, 68)
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelAdminUserName)
-                    .addComponent(jTextFieldAdminUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldAdminKeyword, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelAdminPassword)
-                    .addComponent(jPasswordFieldAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordFieldAdminPawword, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,13 +176,34 @@ public class AdminLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        //if-else check should be here before accessing AdminPortal
-        AdminPortal adminLOptions = new AdminPortal();
-        adminLOptions.setVisible(true);
-        adminLOptions.pack();
-        adminLOptions.setLocationRelativeTo(null);
-        adminLOptions.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+
+        String keyword = jTextFieldAdminKeyword.getText(); //from user input
+        String password = new String(jPasswordFieldAdminPawword.getPassword());  //from user input
+
+        try {
+            ResultSet rs = hms.getAdmin(keyword, password);
+
+            if (rs.next()) {
+                String keyword_from_db = rs.getString(1);
+                String password_from_db = rs.getString(2);
+
+                if (keyword_from_db.equalsIgnoreCase(keyword) && password_from_db.equalsIgnoreCase(password)) {
+                    AdminPortal adminLOptions = new AdminPortal();
+                    adminLOptions.setVisible(true);
+                    adminLOptions.pack();
+                    adminLOptions.setLocationRelativeTo(null);
+                    adminLOptions.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    this.dispose();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Incorrect keyword or password.");
+                }
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     // GUI window is closed upon clicking this button
@@ -225,7 +255,7 @@ public class AdminLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelHeader;
     private javax.swing.JPanel jPanelBase;
     private javax.swing.JPanel jPanelRight;
-    private javax.swing.JPasswordField jPasswordFieldAdmin;
-    private javax.swing.JTextField jTextFieldAdminUserName;
+    private javax.swing.JPasswordField jPasswordFieldAdminPawword;
+    private javax.swing.JTextField jTextFieldAdminKeyword;
     // End of variables declaration//GEN-END:variables
 }
