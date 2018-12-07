@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hospital_management_system;
 
 import java.sql.ResultSet;
@@ -13,15 +9,18 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author general
+ * Class that takes keyword and password from administrator and verifies with the DB
+ * @author AbrarZawed
+ * Date Created: 4th December, 2018
+ * Last Modified: 6th December, 2018
  */
 public class AdminLogin extends javax.swing.JFrame {
 
+    // Private static variable for Singleton HMS
     private static HMS hms;
 
     /**
-     * Creates new form AdminLogin
+     * Constructor for AdminLogin class
      */
     public AdminLogin() {
         initComponents();
@@ -172,6 +171,10 @@ public class AdminLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method that takes keyword and password from administrator and verifies with the DB
+     * @return void
+     */
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
 
         String keyword = jTextFieldAdminKeyword.getText(); //from user input
@@ -203,14 +206,17 @@ public class AdminLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
-    // GUI window is closed upon clicking this button
+    /**
+     * Method that return to the Driver class of the system for restarting the process
+     * @param evt 
+     */
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         this.dispose();
         Driver.main(null);
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Main method of the class
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

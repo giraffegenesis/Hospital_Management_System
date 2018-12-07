@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hospital_management_system;
 
 import java.io.IOException;
@@ -10,19 +6,21 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
 /**
- *
- * @author general
+ * Class that updates a doctor information
+ * @author AbrarZawed
+ * Date Created: 20th September, 2018 
+ * Last Modified: 6th December, 2018
  */
 public class UpdateDoctorPortal extends javax.swing.JFrame {
 
+    // variables
     private static HMS hms;
-    String imagePath;
+    public String imagePath;
     public int currentUserId;
 
     /**
-     * Creates new form UpdateDoctorPortal
+     * Constructor
      */
     public UpdateDoctorPortal() {
         initComponents();
@@ -223,11 +221,19 @@ public class UpdateDoctorPortal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFirstNameActionPerformed
 
+    /**
+     * Image processing class
+     * @param evt 
+     */
     private void jButtonProfilePictureBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProfilePictureBrowseActionPerformed
         ProfilePictureProcessing ppp = new ProfilePictureProcessing();
         imagePath = ppp.browseImage(jLabelProfilePicture);
     }//GEN-LAST:event_jButtonProfilePictureBrowseActionPerformed
 
+    /**
+     * Returns to the Driver class
+     * @param evt 
+     */
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         this.dispose();
         Driver.main(null);

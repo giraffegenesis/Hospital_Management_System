@@ -1,18 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hospital_management_system;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- *
+ * Class that creates a connection with DB
  * @author AbrarZawed
+ * Date Created: 10th September, 2018 
+ * Last Modified: 6th December, 2018
  */
 public class MyConnection {
+    
+    /**
+     * Method that connects to the DB
+     * @return a Connection instance for other connection classes to use
+     */
     public static Connection getConnection() {
         Connection connect = null;
         try {

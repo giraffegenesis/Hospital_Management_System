@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hospital_management_system;
 
 import java.io.File;
@@ -20,17 +16,31 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Class that deletes a patient information from the system and DB
  * @author coolj
+ * Date Created: 17th November, 2018 
+ * Last Modified: 6th December, 2018
  */
 public class DoctorConnection {
 
+    // instance of the Connection class
     private Connection con;
 
+    /**
+     * Constructor
+     */
     DoctorConnection() {
 
     }
 
+    /**
+     * Method uses SQL queries to add a doctor information to the DB
+     * @param fName: First Name
+     * @param lName: Last Name
+     * @param phoneNumber: Phone Number
+     * @param image: Image as String
+     * @return ResultSet
+     */
     public ResultSet add(String fName, String lName, String phoneNumber, String image) {
         con = MyConnection.getConnection();
         PreparedStatement ps;
@@ -55,6 +65,15 @@ public class DoctorConnection {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
     }
+    
+    /**
+     * Method uses SQL queries to update a doctor information to the DB
+     * @param firstName: First Name
+     * @param lastName: Last Name
+     * @param phoneNum: Phone Number
+     * @param image: Image as String
+     * @return ResultSet
+     */
 
     public boolean update(String firstName, String lastName, String phoneNum, String image, int currentUserId) throws SQLException, IOException {
         con = MyConnection.getConnection();
@@ -100,6 +119,11 @@ public class DoctorConnection {
             }
         }
     }
+  /**
+     * Method uses SQL queries to delete a doctor information to the DB
+     * @param doctorId: Id of the doctor
+     * @return ResultSet
+     */
 
     public boolean delete(int doctorId) {
         con = MyConnection.getConnection();
@@ -119,6 +143,12 @@ public class DoctorConnection {
         }
         throw new UnsupportedOperationException("Failed"); //To change body of generated methods, choose Tools | Templates.
     }
+
+      /**
+     * Method uses SQL queries to select a doctor information from the DB
+     * @param doctorId: Id of the Doctor
+     * @return ResultSet
+     */
 
     public ResultSet getDoctorResultSet(int doctorId) throws SQLException {
         con = MyConnection.getConnection();

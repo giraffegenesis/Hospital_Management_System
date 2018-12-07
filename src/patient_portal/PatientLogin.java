@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package patient_portal;
 
 import hospital_management_system.Driver;
@@ -16,11 +12,14 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author general
+ * Class that logins patients
+ * @author AbrarZawed
+ * Date Created: 5th December, 2018 
+ * Last Modified: 6th December, 2018
  */
 public class PatientLogin extends javax.swing.JFrame {
 
+    // variables for Singleton
     private static HMS hms;
 
     /**
@@ -176,11 +175,19 @@ public class PatientLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Returns to the Driver class
+     * @param evt 
+     */
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         this.dispose();
         Driver.main(null);
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
+    /**
+     * Verifies patient's information with the DB
+     * @param evt 
+     */
     private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterActionPerformed
         int patientId = Integer.parseInt(jTextFieldPatientId.getText());    //input from user
         String fName = jTextFieldPatientFirstName.getText();    //input from user

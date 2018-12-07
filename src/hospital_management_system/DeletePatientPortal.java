@@ -1,22 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hospital_management_system;
 
 import javax.swing.JOptionPane;
-
 /**
+ * Class that deletes a patient information from the system and DB
  *
- * @author general
+ * @author AbrarZawed 
+ * Date Created: 17th November, 2018 
+ * Last Modified: 6th December, 2018
  */
 public class DeletePatientPortal extends javax.swing.JFrame {
 
+    // static variables for HMS singleton
     private static HMS hms;
 
     /**
-     * Creates new form DeletePatientPortal
+     * Constructor for the class
      */
     public DeletePatientPortal() {
         initComponents();
@@ -144,11 +143,19 @@ public class DeletePatientPortal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPatientIdActionPerformed
 
+    /**
+     * Method that returns to te Driver class to restart the process
+     * @param evt 
+     */
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         this.dispose();
         Driver.main(null);
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
+    /**
+     * Method that deletes a patient information from the system and DB
+     * @param evt 
+     */
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         int patientId = Integer.parseInt(jTextFieldPatientId.getText());
         String result = hms.deletePatient(patientId);
@@ -161,7 +168,7 @@ public class DeletePatientPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Main method of the class
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

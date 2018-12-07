@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package doctor_portal;
 
 import hospital_management_system.Driver;
@@ -16,8 +12,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author general
+ * Class that provides login page for the doctors
+ * @author AbrarZawed
+ * Date Created: 20th September, 2018 
+ * Last Modified: 4th December, 2018
  */
 public class DoctorLogin extends javax.swing.JFrame {
 
@@ -200,6 +198,10 @@ public class DoctorLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDoctorIdActionPerformed
 
+    /**
+     * Return to the Driver class
+     * @param evt 
+     */
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         this.dispose();
         Driver.main(null);

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hospital_management_system;
 
 import java.sql.Connection;
@@ -11,18 +7,32 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- *
- * @author general
+ * Class that connects to the database to check administrator login
+ * @author AbrarZawed
+ * Date Created: 6th December, 2018
+ * Last Modified: 6th December, 2018
  */
 public class AdminConnection {
 
+    // private instant variables
     private Connection con;
     private int adminId;
     
+    /**
+     * Constructor for the class
+     */
     public AdminConnection() {
         adminId = 1;
     }
 
+    /**
+     * Method that verifies the keyword and password for the system.
+     * Method that allows administrator to login to the system.
+     * @param keyword-> the username for the system (currently "ics")
+     * @param password-> the password for the system (currently "499")
+     * @return ResultSet from the DB
+     * @throws SQLException 
+     */
     public ResultSet verifyAdmin(String keyword, String password) throws SQLException {
       
         con = MyConnection.getConnection();
@@ -33,7 +43,6 @@ public class AdminConnection {
 
         return ps.executeQuery();
         
-
     }
 
 }

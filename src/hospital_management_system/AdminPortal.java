@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hospital_management_system;
 
 import javax.swing.JFrame;
 
 /**
+ * Class that provides a portal for the administrator to navigate the system
  *
- * @author general
+ * @author AbrarZawed Date Created: 15th September, 2018 Last Modified: 6th
+ * December, 2018
  */
 public class AdminPortal extends javax.swing.JFrame {
 
-    private static Driver driver;
     /**
-     * Creates new form AdminOptions
+     * Constructor for the class
      */
     public AdminPortal() {
         initComponents();
@@ -234,7 +230,11 @@ public class AdminPortal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //Update Doctor
+    /**
+     * Method that updates a doctor's information in the system and DB
+     *
+     * @param evt
+     */
     private void jToggleButtonUpdateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonUpdateDoctorActionPerformed
 
         UpdateDoctorId updateDoc = new UpdateDoctorId();
@@ -244,7 +244,11 @@ public class AdminPortal extends javax.swing.JFrame {
         updateDoc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jToggleButtonUpdateDoctorActionPerformed
-    //add patient
+    /**
+     * Method that adds a patient's information in the system and DB
+     *
+     * @param evt
+     */
     private void jToggleButtonAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAddPatientActionPerformed
         AddPatientPortal addPatient = new AddPatientPortal();
         addPatient.setVisible(true);
@@ -254,7 +258,11 @@ public class AdminPortal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jToggleButtonAddPatientActionPerformed
 
-    //add doctor
+    /**
+     * Method that adds a doctor's information in the system and DB
+     *
+     * @param evt
+     */
     private void jToggleButtonAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAddDoctorActionPerformed
         AddDoctorPortal addDoc = new AddDoctorPortal();
         addDoc.setVisible(true);
@@ -263,7 +271,11 @@ public class AdminPortal extends javax.swing.JFrame {
         addDoc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jToggleButtonAddDoctorActionPerformed
-    //update patient
+    /**
+     * Method that update a patient's information in the system and DB
+     *
+     * @param evt
+     */
     private void jToggleButtonUpdatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonUpdatePatientActionPerformed
         UpdatePatientId updatePatient = new UpdatePatientId();
         updatePatient.setVisible(true);
@@ -272,7 +284,11 @@ public class AdminPortal extends javax.swing.JFrame {
         updatePatient.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jToggleButtonUpdatePatientActionPerformed
-
+    /**
+     * Method that deletes a doctor's information in the system and DB
+     *
+     * @param evt
+     */
     private void jToggleButtonDeleteDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonDeleteDoctorActionPerformed
         DeleteDoctorPortal deleteDoc = new DeleteDoctorPortal();
         deleteDoc.setVisible(true);
@@ -281,7 +297,11 @@ public class AdminPortal extends javax.swing.JFrame {
         deleteDoc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jToggleButtonDeleteDoctorActionPerformed
-//delete patient
+    /**
+     * Method that deletes a doctor's information in the system and DB
+     *
+     * @param evt
+     */
     private void jToggleButtonDeletePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonDeletePatientActionPerformed
         DeletePatientPortal deletePatient = new DeletePatientPortal();
         deletePatient.setVisible(true);
@@ -291,13 +311,17 @@ public class AdminPortal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jToggleButtonDeletePatientActionPerformed
 
+    /**
+     * Method returns to the Driver class of the system for restarting the process
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
         Driver.main(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Main method of the class
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

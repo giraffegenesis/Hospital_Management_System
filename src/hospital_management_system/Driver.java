@@ -6,14 +6,16 @@ import javax.swing.JFrame;
 import patient_portal.PatientLogin;
 
 /**
- * This is the beginning of the program containing the main() method
+ * Class that starts the Hospital Management System
  * @author AbrarZawed
+ * Date Created: 10th September, 2018 
+ * Last Modified: 6th December, 2018
  */
 
 public class Driver extends javax.swing.JFrame {
 
     /**
-     * Creates new form Driver
+     * Constructor for the Driver class
      */
     public Driver() {
         initComponents();
@@ -130,9 +132,9 @@ public class Driver extends javax.swing.JFrame {
                 .addComponent(jButtonPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jButtonDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(28, 28, 28)
                 .addComponent(jButtonAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -151,7 +153,10 @@ public class Driver extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    // Patient Portal
+    /**
+     * Method that leads to the login page of the patient using the button click
+     * @param evt 
+     */
     private void jButtonPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPatientActionPerformed
         PatientLogin patientLogin = new PatientLogin();
         patientLogin.setVisible(true);
@@ -160,7 +165,11 @@ public class Driver extends javax.swing.JFrame {
         patientLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jButtonPatientActionPerformed
-    // Doctor Portal
+
+     /**
+     * Method that leads to the login page of the doctor using the button click
+     * @param evt 
+     */
     private void jButtonDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDoctorActionPerformed
         DoctorLogin doctorLogin = new DoctorLogin();
         doctorLogin.setVisible(true);
@@ -170,11 +179,9 @@ public class Driver extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonDoctorActionPerformed
 
-    /**
-     * Method that access HospitalManagementSystem.java (facade) when client
-     * clicks Administrator Button in Driver.java
-     *
-     * @param evt
+   /**
+     * Method that leads to the login page of the administrator using the button click
+     * @param evt 
      */
     private void jButtonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminActionPerformed
 
@@ -187,7 +194,7 @@ public class Driver extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAdminActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Main method for the Hospital Management System
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

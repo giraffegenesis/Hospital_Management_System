@@ -1,15 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package doctor_portal;
 
 import hospital_management_system.Driver;
-
 /**
- *
+ * Class that provides a portal for the doctors
  * @author AbrarZawed
+ * Date Created: 20th September, 2018 
+ * Last Modified: 4th December, 2018
  */
 public class DoctorPortal extends javax.swing.JFrame {
 
@@ -231,6 +228,10 @@ public class DoctorPortal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Returns to the Driver class
+     * @param evt 
+     */
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
         this.dispose();
         Driver.main(null);

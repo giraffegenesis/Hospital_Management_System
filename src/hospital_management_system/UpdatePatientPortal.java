@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hospital_management_system;
 
 import java.io.IOException;
@@ -12,11 +8,14 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author general
+ * Class that updates a patient information
+ * @author AbrarZawed
+ * Date Created: 20th September, 2018 
+ * Last Modified: 6th December, 2018
  */
 public class UpdatePatientPortal extends javax.swing.JFrame {
 
+    // variables
     public int currentPatientId;
     private static HMS hms;
 
@@ -204,6 +203,10 @@ public class UpdatePatientPortal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldLastNameActionPerformed
 
+    /**
+     * Method that verifies Patient's input with the DB
+     * @param evt 
+     */
     private void jButtonUpdateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateDoctorActionPerformed
         String firstName = jTextFieldFirstName.getText();
         String lastName = jTextFieldLastName.getText();
@@ -229,6 +232,10 @@ public class UpdatePatientPortal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonUpdateDoctorActionPerformed
 
+    /**
+     * Returns to the Driver class
+     * @param evt 
+     */
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         this.dispose();
         Driver.main(null);

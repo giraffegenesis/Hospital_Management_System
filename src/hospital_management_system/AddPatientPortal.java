@@ -1,22 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package hospital_management_system;
 
+package hospital_management_system;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author general
+ * Class that adds a patient's information to the database
+ * @author AbrarZawed
+ * Date Created: 24th November, 2018
+ * Last Modified: 6th December, 2018
  */
+
 public class AddPatientPortal extends javax.swing.JFrame {
 
+    // static variable that uses HMS singleton instance
     private static HMS hms;
 
     /**
-     * Creates new form AddPatientPortal
+     * Constructor for the AddPatientPortal class
      */
     public AddPatientPortal() {
         initComponents();
@@ -223,11 +222,20 @@ public class AddPatientPortal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPrimarycarePhysicianIDActionPerformed
 
+    /**
+     * Method that returns to Driver class of the system for restarting.
+     * @return void. 
+     */
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         this.dispose();
         Driver.main(null);
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
+    
+    /**
+     * Method that adds a doctor to the database.
+     * @return void.
+     */
     private void jButtonAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPatientActionPerformed
 
         String firstName = jTextFieldFirstName.getText();
@@ -249,7 +257,7 @@ public class AddPatientPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAddPatientActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Main method of the class
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

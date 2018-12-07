@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hospital_management_system;
-
-
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -16,16 +10,30 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author general
+ * Class that creates a connection with the DB
+ * @author AbrarZawed
+ * Date Created: 1st December, 2018 
+ * Last Modified: 6th December, 2018
  */
 public class PatientConnection  {
 
+    // private instant variable of a connection
     private Connection con;
 
+    /**
+     * Constructor
+     */
     public PatientConnection() {
     }
 
+    /**
+     * Adds patient's information to the DB using queries
+     * @param fName
+     * @param lName
+     * @param phoneNumber
+     * @param primaryCarePhysician
+     * @return 
+     */
     public ResultSet add(String fName, String lName, String phoneNumber, String primaryCarePhysician) {
         con = MyConnection.getConnection();
         PreparedStatement ps;
@@ -47,6 +55,11 @@ public class PatientConnection  {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    /**
+     * Deletes patient's information to the DB using queries
+     * @param patientId
+     * @return 
+     */
     public boolean delete(int patientId) {
           con = MyConnection.getConnection();
         try {
@@ -66,6 +79,12 @@ public class PatientConnection  {
         throw new UnsupportedOperationException("Failed");
     }
 
+    /**
+     * Returns a ResultSet for the patient
+     * @param patientId
+     * @return
+     * @throws SQLException 
+     */
     public ResultSet getPatientResultSet(int patientId) throws SQLException {
         con = MyConnection.getConnection();
         PreparedStatement ps;
@@ -76,6 +95,17 @@ public class PatientConnection  {
         return ps.executeQuery();
     }
 
+    /**
+     * Updates patient's information to the DB using queries
+     * @param firstName
+     * @param lastName
+     * @param phoneNumber
+     * @param primaryCarePhysician
+     * @param currentPatientId
+     * @return
+     * @throws SQLException
+     * @throws IOException 
+     */
     public boolean update(String firstName, String lastName, String phoneNumber, String primaryCarePhysician, int currentPatientId) throws SQLException, IOException {
         con = MyConnection.getConnection();
         PreparedStatement ps;

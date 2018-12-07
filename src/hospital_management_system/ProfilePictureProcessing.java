@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hospital_management_system;
 
 import java.awt.Image;
@@ -12,8 +8,22 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+/**
+ * Class that processes a picture based on its height and width
+ * @author AbrarZawed
+ * Date Created: 20th September, 2018 
+ * Last Modified: 6th December, 2018
+ */
 public class ProfilePictureProcessing {
 
+    /**
+     * Method that resizes a pictures based on label
+     * @param picPath
+     * @param BLOBpic
+     * @param wdth
+     * @param hgt
+     * @return 
+     */
     public ImageIcon resizePic(String picPath, byte[] BLOBpic, int wdth, int hgt) {
         ImageIcon myImg;
         if (picPath != null) {
@@ -27,6 +37,11 @@ public class ProfilePictureProcessing {
         return myPicture;
     }
 
+    /**
+     * Method that browses an image for the local directory
+     * @param lbl
+     * @return 
+     */
     public String browseImage(JLabel lbl) {
         String path = null;
         JFileChooser filec = new JFileChooser();

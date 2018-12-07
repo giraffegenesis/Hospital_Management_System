@@ -1,25 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hospital_management_system;
 
 import javax.swing.JOptionPane;
 
 /**
- * This class will create Doctor object from the information added by the
- * Administrator
- *
+ * Class that adds a doctor's information to the database
  * @author AbrarZawed
+ * Date Created: 20th September, 2018
+ * Last Modified: 6th December, 2018
  */
+
 public class AddDoctorPortal extends javax.swing.JFrame {
 
-    private static HMS hms; // UI has an instance of facade HMS
-    String imagePath;
+    // variables
+    private static HMS hms; 
+    public String imagePath;
 
     /**
-     * Creates new form Doctor
+     * Constructor for Driver class
      */
     public AddDoctorPortal() {
         initComponents();
@@ -215,32 +212,49 @@ public class AddDoctorPortal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method that that allows browsing of a picture from local directory
+     * Method also processes a browsed picture based on its height and width
+     * @return void
+     */
     private void jButtonProfilePictureBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProfilePictureBrowseActionPerformed
         ProfilePictureProcessing ppp = new ProfilePictureProcessing();
         imagePath = ppp.browseImage(jLabelProfilePicture);
 
     }//GEN-LAST:event_jButtonProfilePictureBrowseActionPerformed
 
+    /**
+     * Method that add a doctor information to the database
+     * @return void
+     */
     private void jButtonAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddDoctorActionPerformed
 
+        // instant variables based on input of the user 
         String firstName = jTextFieldFirstName.getText();
         String lastName = jTextFieldLastName.getText();
         String phoneNum = jTextFieldPhoneNumber.getText();
         String image = imagePath;
+        
+        
         int result;
+        result = hms.addDoctor(firstName, lastName, phoneNum, image);  
 
-        result = hms.addDoctor(firstName, lastName, phoneNum, image);
-
+        // if the system was unable to insert a doctor information to the database
         if (result == -1) {
             JOptionPane.showMessageDialog(null, "Account Cannot be Created");
             System.exit(0);
-        } else {
+        } 
+        // if the system was unable to insert a doctor information to the database
+        else {
             JOptionPane.showMessageDialog(null, "Account Created, New Doctor Id is " + result);
             this.dispose();
             Driver.main(null);
         }
     }//GEN-LAST:event_jButtonAddDoctorActionPerformed
-
+    /**
+     * Method that returns to the Driver class for restarting the system
+     * @param evt 
+     */
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         this.dispose();
         Driver.main(null);
@@ -251,7 +265,7 @@ public class AddDoctorPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldFirstNameActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Main method of the class
      */
     public static void main(String args[]) {
 

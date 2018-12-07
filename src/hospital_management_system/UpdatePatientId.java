@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hospital_management_system;
 
 import java.sql.ResultSet;
@@ -13,8 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author general
+ * Class that updates a patient information
+ * @author AbrarZawed
+ * Date Created: 20th September, 2018 
+ * Last Modified: 6th December, 2018
  */
 public class UpdatePatientId extends javax.swing.JFrame {
 
@@ -149,11 +147,19 @@ public class UpdatePatientId extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPatientIdActionPerformed
 
+    /**
+     * Returns to the Driver class
+     * @param evt 
+     */
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         this.dispose();
         Driver.main(null);
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
+    /**
+     * Method that verifies patient's information with the DB
+     * @param evt 
+     */
     private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterActionPerformed
         int patientId = Integer.parseInt(jTextFieldPatientId.getText());
 

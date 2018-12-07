@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hospital_management_system;
 
 import java.sql.*;
@@ -13,16 +9,18 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
- *
- * @author general
+ * Class that helps with updating doctor Information
+ * @author AbrarZawed
+ * Date Created: 20th September, 2018 
+ * Last Modified: 6th December, 2018
  */
+
 public class UpdateDoctorId extends javax.swing.JFrame {
 
    private static HMS hms;
 
     /**
-     * Creates new form UpdateDoctorId
+     * Constructor
      */
     public UpdateDoctorId() {
         initComponents();
@@ -152,11 +150,14 @@ public class UpdateDoctorId extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method that verifies the access to the system
+     * @param evt
+     * @throws SQLException 
+     */
     private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_jButtonEnterActionPerformed
 
         int id = Integer.parseInt(jTextFieldDoctorId.getText());
-
-        // username and password is valid, now display contact form(patients form)
      
         ResultSet rs = hms.getDoctor(id);
         
@@ -179,8 +180,12 @@ public class UpdateDoctorId extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "There is an error...");
         }
 
-    }//GEN-LAST:event_jButtonEnterActionPerformed
+    }
 
+    /**
+     * Returns to the Driver class of the system
+     * @param evt 
+     */
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         this.dispose();
         Driver.main(null);
