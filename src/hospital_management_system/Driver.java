@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import patient_portal.PatientLogin;
 
 /**
- * Class that starts the Hospital Management System
+ * Class that starts the Hospital Management System.
  * @author AbrarZawed
  * Date Created: 10th September, 2018 
  * Last Modified: 6th December, 2018
