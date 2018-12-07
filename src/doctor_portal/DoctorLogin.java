@@ -22,7 +22,7 @@ public class DoctorLogin extends javax.swing.JFrame {
     private static HMS hms;
 
     /**
-     * Creates new form DoctorLogin
+     * Constructor
      */
     public DoctorLogin() {
         initComponents();
