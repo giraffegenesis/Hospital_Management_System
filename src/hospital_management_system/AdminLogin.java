@@ -61,7 +61,7 @@ public class AdminLogin extends javax.swing.JFrame {
 
         jLabelAdminUserName.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabelAdminUserName.setForeground(new java.awt.Color(102, 102, 102));
-        jLabelAdminUserName.setText("Keyword:");
+        jLabelAdminUserName.setText("Username:");
 
         jLabelHeader.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         jLabelHeader.setForeground(new java.awt.Color(102, 102, 102));
@@ -177,30 +177,20 @@ public class AdminLogin extends javax.swing.JFrame {
      */
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
 
-        String keyword = jTextFieldAdminKeyword.getText(); //from user input
-        String password = new String(jPasswordFieldAdminPawword.getPassword());  //from user input
-
         try {
-            ResultSet rs = hms.getAdminVerification(keyword, password);
-
-            if (rs.next()) {
-                String keyword_from_db = rs.getString(1);   //output from db
-                String password_from_db = rs.getString(2);  //output from db
-
-                // compare the user input with db output
-                if (keyword_from_db.equalsIgnoreCase(keyword) && password_from_db.equalsIgnoreCase(password)) {
-                    AdminPortal adminLOptions = new AdminPortal();
-                    adminLOptions.setVisible(true);
-                    adminLOptions.pack();
-                    adminLOptions.setLocationRelativeTo(null);
-                    adminLOptions.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Incorrect keyword or password. Please try again");
-                }
-
+            String keyword = jTextFieldAdminKeyword.getText(); //from user input
+            String password = new String(jPasswordFieldAdminPawword.getPassword());  //from user input
+            boolean result = hms.getAdminVerification(keyword, password);
+            if (result) {
+                AdminPortal adminLOptions = new AdminPortal();
+                adminLOptions.setVisible(true);
+                adminLOptions.pack();
+                adminLOptions.setLocationRelativeTo(null);
+                adminLOptions.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Incorrect username or password. Please try again");
             }
-
         } catch (SQLException ex) {
             Logger.getLogger(AdminLogin.class.getName()).log(Level.SEVERE, null, ex);
         }

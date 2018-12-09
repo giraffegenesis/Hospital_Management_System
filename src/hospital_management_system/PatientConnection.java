@@ -52,7 +52,8 @@ public class PatientConnection  {
         } catch (Exception ex) {
             Logger.getLogger(HMS.class.getName()).log(Level.SEVERE, null, ex);
         }
-        throw new UnsupportedOperationException("Not supported yet.");
+        return null;
+        
     }
 
     /**
@@ -88,11 +89,14 @@ public class PatientConnection  {
     public ResultSet getPatientResultSet(int patientId) throws SQLException {
         con = MyConnection.getConnection();
         PreparedStatement ps;
-
+        ResultSet rs;
         ps = con.prepareStatement("SELECT `fName`,`lName`,`phoneNumber`,`primaryCarePhysician` FROM `patient` WHERE `patientId`=?");
         ps.setInt(1, patientId);
-
-        return ps.executeQuery();
+        rs= ps.executeQuery();
+        if(rs.first()==false){
+            return null;
+        }
+        return rs;
     }
 
     /**

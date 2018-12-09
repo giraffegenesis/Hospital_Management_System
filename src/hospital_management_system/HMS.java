@@ -46,8 +46,12 @@ public class HMS {
      */
     public int addDoctor(String fName, String lName, String phoneNumber, String image) {
         int id = -1;
+        if(image==null){
+            return id;
+        }
         DoctorConnection dt = new DoctorConnection();
         ResultSet rs = dt.add(fName, lName, phoneNumber, image);
+        
         try {
             if (rs.next()) {
                 id = rs.getInt(1);
@@ -175,10 +179,11 @@ public class HMS {
      * @return
      * @throws SQLException 
      */
-    public ResultSet getAdminVerification(String keyword, String password) throws SQLException {
-        ResultSet result;
+    public boolean getAdminVerification(String keyword, String password) throws SQLException {
+        boolean result;
         AdminConnection ac = new AdminConnection();
         result = ac.verifyAdmin(keyword,password);
+                 
         return result;
     }
 

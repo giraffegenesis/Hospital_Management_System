@@ -33,16 +33,24 @@ public class AdminConnection {
      * @return ResultSet from the DB
      * @throws SQLException 
      */
-    public ResultSet verifyAdmin(String keyword, String password) throws SQLException {
+    public boolean verifyAdmin(String keyword, String password) throws SQLException {
       
         con = MyConnection.getConnection();
         PreparedStatement ps;
-
+        ResultSet rs;
         ps = con.prepareStatement("SELECT `keyword`,`password` FROM `hms_login_info` WHERE `adminId`=?");
         ps.setInt(1, adminId);
+        rs=ps.executeQuery();
+        if (rs.next()) {
+                String keyword_from_db = rs.getString(1);   //output from db
+                String password_from_db = rs.getString(2);  //output from db
 
-        return ps.executeQuery();
-        
+                // compare the user input with db output
+                if (keyword_from_db.equalsIgnoreCase(keyword) && password_from_db.equalsIgnoreCase(password)) {
+                    return true;
+                }
+        }
+        return false;
     }
 
 }

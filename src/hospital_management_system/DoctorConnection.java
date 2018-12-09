@@ -45,7 +45,9 @@ public class DoctorConnection {
         con = MyConnection.getConnection();
         PreparedStatement ps;
         ResultSet rs;
-
+        if(image==null){
+            return null;
+        }
         try {
             ps = con.prepareStatement("INSERT INTO `doctor`(`fName`, `lName`, `phoneNumber`, `pic`) VALUES (?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
             // Sets the designated parameter to the given Java String value
@@ -153,11 +155,24 @@ public class DoctorConnection {
     public ResultSet getDoctorResultSet(int doctorId) throws SQLException {
         con = MyConnection.getConnection();
         PreparedStatement ps;
-
+        
         ps = con.prepareStatement("SELECT `fName`, `lName`, `phoneNumber`, `pic` FROM `doctor` WHERE `doctorId`= ?");
         ps.setInt(1, doctorId);
-
-        return ps.executeQuery();
-
+        ResultSet rs= ps.executeQuery();
+        //return ps.executeQuery();
+        if(rs.first()==false){
+            return null;
+        }
+        return rs;
+    }
+    public static void main(String[] args) {
+        DoctorConnection dc= new DoctorConnection();
+        ResultSet rs = null;
+        try{
+        rs = dc.getDoctorResultSet(0);
+        }catch(SQLException sq){
+            
+        }
+        System.out.println(rs);
     }
 }
