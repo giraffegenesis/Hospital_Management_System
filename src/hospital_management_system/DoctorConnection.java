@@ -165,14 +165,5 @@ public class DoctorConnection {
         }
         return rs;
     }
-    public static void main(String[] args) {
-        DoctorConnection dc= new DoctorConnection();
-        ResultSet rs = null;
-        try{
-        rs = dc.getDoctorResultSet(0);
-        }catch(SQLException sq){
-            
-        }
-        System.out.println(rs);
-    }
+    
 }
