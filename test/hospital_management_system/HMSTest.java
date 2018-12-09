@@ -66,7 +66,22 @@ public class HMSTest {
        
     }
 
-  
+      /**
+     * Test of getDoctor method, of class HMS.
+     */
+    @Test
+    public void testBadGetDoctor() throws Exception {
+        System.out.println("getDoctor--BadInput--");
+        boolean results=true;
+        int doctorId = 0;
+        HMS instance = HMS.instance();
+        ResultSet result = instance.getDoctor(doctorId);
+        if(!result.next()){
+                results=false;
+        }
+        assertFalse(results);   
+    }
+    
     
     /**
      * Test of getDoctor method, of class HMS.
@@ -92,7 +107,21 @@ public class HMSTest {
         assertNotNull(result);
     }
     
-  
+     /**
+     * Test of getDoctor method, of class HMS.
+     */
+    @Test
+    public void testBadGetPatient() throws Exception {
+        System.out.println("getPatient--BadInput--");
+        boolean results=true;
+        int patientId = 0;
+        HMS instance = HMS.instance();
+        ResultSet result = instance.getPatient(patientId);
+        if(!result.next()){
+                results=false;
+        }
+        assertFalse(results);   
+    }
 
     /**
      * Test of updateDoctor method, of class HMS.
