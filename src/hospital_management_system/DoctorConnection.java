@@ -158,12 +158,8 @@ public class DoctorConnection {
         
         ps = con.prepareStatement("SELECT `fName`, `lName`, `phoneNumber`, `pic` FROM `doctor` WHERE `doctorId`= ?");
         ps.setInt(1, doctorId);
-        ResultSet rs= ps.executeQuery();
-        //return ps.executeQuery();
-        if(rs.first()==false){
-            return null;
-        }
-        return rs;
+        return ps.executeQuery();
+        
     }
     
 }

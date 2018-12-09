@@ -72,8 +72,8 @@ public class HMS {
     public ResultSet getDoctor(int doctorId) throws SQLException {
         ResultSet result;
         DoctorConnection dt = new DoctorConnection();
-        result = dt.getDoctorResultSet(doctorId);
-        return result;
+        return dt.getDoctorResultSet(doctorId);
+       
     }
     /**
      * Method that Returns a resultSet from the DB

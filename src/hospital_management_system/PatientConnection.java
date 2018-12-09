@@ -92,11 +92,8 @@ public class PatientConnection  {
         ResultSet rs;
         ps = con.prepareStatement("SELECT `fName`,`lName`,`phoneNumber`,`primaryCarePhysician` FROM `patient` WHERE `patientId`=?");
         ps.setInt(1, patientId);
-        rs= ps.executeQuery();
-        if(rs.first()==false){
-            return null;
-        }
-        return rs;
+        return ps.executeQuery();
+        
     }
 
     /**
@@ -130,4 +127,5 @@ public class PatientConnection  {
                 return false;
             }
     }
+
 }

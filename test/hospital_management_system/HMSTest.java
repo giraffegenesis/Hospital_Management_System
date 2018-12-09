@@ -72,11 +72,18 @@ public class HMSTest {
     @Test
     public void testBadGetDoctor() throws Exception {
         System.out.println("getDoctor--BadInput--");
+        boolean results=true;
         int doctorId = 0;
         HMS instance = HMS.instance();
-        ResultSet expResult = null;
         ResultSet result = instance.getDoctor(doctorId);
-        assertEquals(expResult, result);
+        if(result.next()){
+            String temp=result.getString(1);
+            if(temp==""){
+                results=false;
+            }
+        }
+       
+        assertTrue(results);
         
     }
     
@@ -110,10 +117,18 @@ public class HMSTest {
     @Test
     public void testBadGetPatient() throws Exception {
         System.out.println("getPatient--Bad Input");
+        boolean results=true;
         int patientId = 0;
         HMS instance = HMS.instance();
         ResultSet result = instance.getPatient(patientId);
-        assertNull(result);
+        if(result.next()){
+            String temp=result.getString(1);
+            if(temp==""){
+                results=false;
+            }
+        }
+       
+        assertTrue(results);
     }
 
     /**
