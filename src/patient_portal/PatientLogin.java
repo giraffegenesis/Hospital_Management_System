@@ -93,7 +93,7 @@ public class PatientLogin extends javax.swing.JFrame {
                     .addGroup(jPanelRightLayout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addComponent(jButtonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
+                        .addGap(29, 29, 29)
                         .addComponent(jButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelRightLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
