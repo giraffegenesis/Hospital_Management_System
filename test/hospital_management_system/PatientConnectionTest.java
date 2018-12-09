@@ -6,6 +6,9 @@
 package hospital_management_system;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -65,7 +68,27 @@ public class PatientConnectionTest {
         boolean result = instance.delete(patientId);
         assertFalse(result);
     }
-
+    
+     /**
+     * Test of delete method, of class PatientConnection.
+     */
+    @Test
+    public void testGoodDelete() {
+        try {
+            System.out.println("delete--Good Input--");
+            int patientId = 0;
+            PatientConnection instance = new PatientConnection();
+            ResultSet rs=instance.add("Delete","Me", "Now", "3");
+            if (rs.next()) {
+                patientId = rs.getInt(1);
+            }
+            boolean result = instance.delete(patientId);
+            assertTrue(result);
+        } catch (SQLException ex) {
+            Logger.getLogger(PatientConnectionTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+ 
     /**
      * Test of getPatientResultSet method, of class PatientConnection.
      */

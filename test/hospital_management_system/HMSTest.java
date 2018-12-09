@@ -190,7 +190,22 @@ public class HMSTest {
         assertEquals(expResult, result);
        
     }
+    
+    /**
+     * Test of deletePatient method, of class HMS.
+     */
+    @Test
+    public void testDeletePatient() {
+            System.out.println("deletePatient--Good Input--");
+            int patientId = 0;
+            HMS instance = HMS.instance();
+            patientId=instance.addPatient("Delete","Me", "Now", "3");
+            String expResult = ""+patientId;
+            String result = instance.deletePatient(patientId);
+            assertEquals(expResult,result);
+    }
 
+    
     /**
      * Test of updatePatient method, of class HMS.
      */

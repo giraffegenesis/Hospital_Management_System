@@ -96,7 +96,8 @@ public class DoctorConnectionTest {
         boolean result = instance.delete(doctorId);
         assertFalse(result);
     }
-
+    
+    
     /**
      * Test of getDoctorResultSet method, of class DoctorConnection.
      */
