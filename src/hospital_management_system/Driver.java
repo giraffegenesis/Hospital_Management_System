@@ -9,7 +9,7 @@ import patient_portal.PatientLogin;
  * Class that starts the Hospital Management System.
  * @author AbrarZawed
  * Date Created: 10th September, 2018 
- * Last Modified: 8th December, 2018
+ * Last Modified: 9th December, 2018
  */
 
 public class Driver extends javax.swing.JFrame {
