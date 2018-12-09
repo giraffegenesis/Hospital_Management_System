@@ -105,9 +105,13 @@ public class DoctorConnectionTest {
     public void testBadGetDoctorResultSet() throws Exception {
         System.out.println("getDoctorResultSet--Bad Input--");
         int doctorId = 0;
+        boolean results= true;
         DoctorConnection instance = new DoctorConnection();
         ResultSet result = instance.getDoctorResultSet(doctorId);
-        assertNull(result);
+        if(!result.next()){
+                results=false;
+        }
+        assertFalse(results);  
     }
     
     /**

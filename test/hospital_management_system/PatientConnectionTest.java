@@ -96,9 +96,13 @@ public class PatientConnectionTest {
     public void testBadGetPatientResultSet() throws Exception {
         System.out.println("getPatientResultSet--Bad Input");
         int patientId = 0;
+        boolean results=true;
         PatientConnection instance = new PatientConnection();
         ResultSet result = instance.getPatientResultSet(patientId);
-        assertNull(result);
+        if(!result.next()){
+                results=false;
+        }
+        assertFalse(results);   
     }
     /**
      * Test of getPatientResultSet method, of class PatientConnection.
